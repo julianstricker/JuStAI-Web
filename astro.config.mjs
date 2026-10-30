@@ -25,7 +25,7 @@ export default defineConfig({
         { label: 'Operate', translations: { de: 'Betrieb' }, items: [
           { slug: 'docs/deployment' }, { slug: 'docs/security' }, { slug: 'docs/testing' } ] },
         { label: 'Build & extend', translations: { de: 'Entwickeln' }, items: [
-          { slug: 'docs/plugins' }, { slug: 'docs/development' }, { slug: 'docs/architecture' }, { slug: 'docs/tech-stack' },
+          { slug: 'docs/vibe-coding' }, { slug: 'docs/plugins' }, { slug: 'docs/development' }, { slug: 'docs/architecture' }, { slug: 'docs/tech-stack' },
           { label: 'Decisions (ADR)', translations: { de: 'Entscheidungen (ADR)' }, items: [{ autogenerate: { directory: 'docs/adr' } }] } ] },
       ],
     }),

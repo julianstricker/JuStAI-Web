@@ -102,6 +102,17 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
       </div>
     </section>
 
+    <section id="community" class="sec open">
+      <h2>{t.open.h}</h2><p class="sub">{t.open.sub}</p>
+      <div class="grid">
+        {t.open.cards.map((c) => <div class="card"><div class="ico">{c.i}</div><h3>{c.h}</h3><p>{c.p}</p>{'slug' in c && <p class="more"><a href={docs(c.slug)}>{c.cta} →</a></p>}</div>)}
+      </div>
+      <h2 class="h2b">{t.community.h}</h2><p class="sub">{t.community.sub}</p>
+      <div class="grid">
+        {t.community.items.map((c) => <div class="card"><div class="ico">{c.i}</div><h3>{c.h}</h3><p>{c.p}</p><p class="more"><a href={'slug' in c ? docs(c.slug) : c.href} rel="noopener">{c.cta} →</a></p></div>)}
+      </div>
+    </section>
+
     <section id="install" class="sec install">
       <h2>{t.install.h}</h2><p class="sub">{t.install.sub}</p>
 
@@ -154,7 +165,7 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
 
   <footer>
     <span>© 2026 Julian Stricker · AGPL-3.0</span>
-    <span><a href={docs('overview')}>{t.nav.docs}</a> · <a href={`https://github.com/${repo}`}>GitHub</a> · <a href={`https://github.com/${repo}/issues`}>{t.footer.issues}</a></span>
+    <span><a href={docs('overview')}>{t.nav.docs}</a> · <a href={`https://github.com/${repo}`}>GitHub</a> · <a href={`https://github.com/${repo}/issues`}>{t.footer.issues}</a> · <a href={`https://github.com/${repo}/discussions`}>Discussions</a></span>
   </footer>
 
   <script is:inline>
@@ -229,7 +240,7 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
   .chats { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; margin-top:24px; }
   .chat { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:18px; display:flex; flex-direction:column; gap:10px; }
   .me { align-self:flex-start; background:var(--ico); padding:10px 14px; border-radius:16px 16px 16px 4px; } .ai { display:flex; gap:8px; align-items:flex-start; color:var(--mut); } .ai span { background:var(--bg2); padding:10px 14px; border-radius:16px 16px 4px 16px; color:var(--fg); }
-  .more { margin-top:20px; font-weight:700; }
+  .more { margin-top:20px; font-weight:700; } .card .more { margin:12px 0 0; } .h2b { margin-top:48px; } .open .grid { grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); }
   .steps { list-style:none; padding:0; margin:28px 0 0; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; } .steps li { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:24px; position:relative; }
   .num { display:inline-grid; place-items:center; width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,#8b6cff,#3ee8b5); color:#0e0d24; font-weight:800; } .steps h3 { margin:12px 0 4px; } .steps p { margin:0; color:var(--mut); }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin-top:24px; } .card { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:22px; transition:transform .2s, border-color .2s; } .card:hover { transform:translateY(-3px); border-color:var(--acc); }
