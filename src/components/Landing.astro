@@ -3,8 +3,8 @@ import Mascot from './Mascot.astro';
 import { installCommand, repo } from '../../site.config.mjs';
 import { copy } from '../i18n/landing';
 
-interface Props { lang: 'en' | 'de'; mascot?: 'robot' | 'house' | 'owl' }
-const { lang, mascot = 'robot' } = Astro.props;
+interface Props { lang: 'en' | 'de'; mascot?: 'robot' | 'house' | 'owl' | 'brain' | 'camera' }
+const { lang, mascot = 'dome' } = Astro.props;
 const t = copy[lang];
 const b = import.meta.env.BASE_URL.replace(/\/$/, '');
 const pre = lang === 'de' ? `${b}/de` : b;
@@ -28,7 +28,7 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
 </head>
 <body>
   <header class="nav">
-    <a class="brand" href={lang === 'de' ? `${b}/de/` : `${b}/`}><Mascot variant={mascot} size={34} class="mini" /><span>JuStAI<b>5</b></span></a>
+    <a class="brand" href={lang === 'de' ? `${b}/de/` : `${b}/`}><Mascot variant="ring" size={34} class="mini" /><span>JuStAI<b>5</b></span></a>
     <nav>
       <a href="#examples">{t.nav.examples}</a><a href="#features">{t.nav.features}</a><a href="#install">{t.nav.install}</a><a href={docs('overview')}>{t.nav.docs}</a>
       <a href={`https://github.com/${repo}`} rel="noopener">GitHub</a>
@@ -140,7 +140,7 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
     </section>
 
     <section class="sec cta-end">
-      <Mascot variant={mascot} size={140} />
+      <Mascot variant="halo" size={160} />
       <h2>{t.end.h}</h2>
       <div class="cta"><a class="btn primary" href="#install">{t.hero.cta}</a><a class="btn" href={docs('plugins')}>{t.end.plugins}</a></div>
     </section>
