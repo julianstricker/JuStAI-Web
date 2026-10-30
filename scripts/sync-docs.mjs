@@ -71,22 +71,37 @@ function rewriteLinks(text, fromRel) {
 const readdirSyncSafe = (p) => { try { return readdirSync(p).length >= 0; } catch { return false; } };
 
 // Diagrams (public/img/docs/<name>.<lang>.svg, made by make-diagrams.mjs) shown after the intro of a page.
+const fig = (name, en, de) => ({ name, alt: { en, de } });
 const figures = {
-  overview: ['how', { en: 'How JuStAI5 works: devices in every room, your server at home, an AI model, answers back in the same room', de: 'So funktioniert JuStAI5: Geräte in jedem Raum, dein Server zu Hause, ein KI-Modell, Antworten im selben Raum' }],
-  installation: ['inst', { en: 'Installation in four steps', de: 'Installation in vier Schritten' }],
-  rooms: ['rooms', { en: 'A room contains devices; an interaction endpoint combines them; room policies decide what is allowed', de: 'Ein Raum enthält Geräte; ein Interaction Endpoint kombiniert sie; Raum-Richtlinien bestimmen, was erlaubt ist' }],
-  audio: ['pipe', { en: 'From a spoken sentence to the answer', de: 'Vom gesprochenen Satz zur Antwort' }],
-  security: ['priv', { en: 'What stays on your server and what may go to a cloud AI', de: 'Was auf deinem Server bleibt und was an eine Cloud-KI gehen darf' }],
-  architecture: ['arch', { en: 'Docker containers and networks', de: 'Docker-Container und Netzwerke' }],
-  'vibe-coding': ['vibe', { en: 'Three ways to build JuStAI5 further', de: 'Drei Wege, JuStAI5 weiterzubauen' }],
+  overview: [
+    fig('how.#.svg', 'How JuStAI5 works: devices in every room, your server at home, an AI model, answers back in the same room', 'So funktioniert JuStAI5: Geräte in jedem Raum, dein Server zu Hause, ein KI-Modell, Antworten im selben Raum'),
+    fig('shots/dashboard.#.png', 'The JuStAI5 dashboard (demo data)', 'Das JuStAI5-Dashboard (Demo-Daten)'),
+  ],
+  installation: [fig('inst.#.svg', 'Installation in four steps', 'Installation in vier Schritten')],
+  rooms: [
+    fig('rooms.#.svg', 'A room contains devices; an interaction endpoint combines them; room policies decide what is allowed', 'Ein Raum enthält Geräte; ein Interaction Endpoint kombiniert sie; Raum-Richtlinien bestimmen, was erlaubt ist'),
+    fig('shots/rooms.#.png', 'The Rooms page with devices and interaction endpoints (demo data)', 'Die Seite Räume mit Geräten und Interaction Endpoints (Demo-Daten)'),
+  ],
+  devices: [fig('shots/devices.#.png', 'The Devices page (demo data with simulated devices)', 'Die Seite Geräte (Demo-Daten mit simulierten Geräten)')],
+  audio: [
+    fig('pipe.#.svg', 'From a spoken sentence to the answer', 'Vom gesprochenen Satz zur Antwort'),
+    fig('shots/audio.#.png', 'Live audio diagnostics per room (demo data)', 'Live-Audiodiagnose pro Raum (Demo-Daten)'),
+  ],
+  vision: [fig('shots/people.#.png', 'People and pets (demo data)', 'Personen und Haustiere (Demo-Daten)')],
+  memory: [fig('shots/memory.#.png', 'The Memory page (demo data)', 'Die Seite Gedächtnis (Demo-Daten)')],
+  automations: [fig('shots/automations.#.png', 'The Automations page (demo data)', 'Die Seite Automationen (Demo-Daten)')],
+  security: [fig('priv.#.svg', 'What stays on your server and what may go to a cloud AI', 'Was auf deinem Server bleibt und was an eine Cloud-KI gehen darf')],
+  architecture: [fig('arch.#.svg', 'Docker containers and networks', 'Docker-Container und Netzwerke')],
+  'vibe-coding': [fig('vibe.#.svg', 'Three ways to build JuStAI5 further', 'Drei Wege, JuStAI5 weiterzubauen')],
 };
 function addFigure(text, { lang, slug }) {
-  const f = figures[slug];
-  if (!f) return text;
-  const img = `\n\n![${f[1][lang]}](${base}/img/docs/${f[0]}.${lang}.svg)\n\n`;
+  const list = figures[slug];
+  if (!list) return text;
+  const imgs = list.map((f) => `![${f.alt[lang]}](${base}/img/docs/${f.name.replace('#', lang)})`).join('\n\n');
+  const block = `\n\n${imgs}\n\n`;
   const m = text.match(/^\s*\n?([^\n#|`>*\-][^\n]*\n)+/); // first plain paragraph
-  if (!m) return img.trimStart() + text;
-  return text.slice(0, m[0].length) + img + text.slice(m[0].length);
+  if (!m) return block.trimStart() + text;
+  return text.slice(0, m[0].length) + block + text.slice(m[0].length);
 }
 
 function convert(rel) {
