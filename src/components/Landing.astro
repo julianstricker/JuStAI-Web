@@ -46,10 +46,12 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
           <button type="button" class="copy">{t.copy}</button>
         </div>
         <p class="tiny">{t.hero.req}</p>
+        <p class="tiny wake">🗣 {t.hero.wake} <a href={docs('audio') + '#wakeword'}>→</a></p>
       </div>
       <div class="hero-art">
         <div class="bubble b1" id="say" aria-live="polite">{t.hero.convos[0].q}</div>
         <Mascot variant={mascot} size={300} mood="listening" />
+        <div class="price" aria-label={t.hero.tagNote}><b>{t.hero.tag}</b><small>{t.hero.tagNote}</small></div>
         <div class="bubble b2" id="reply">{t.hero.convos[0].a}</div>
         <script type="application/json" id="convos" set:html={JSON.stringify(t.hero.convos)} />
       </div>
@@ -57,6 +59,26 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
 
     <section class="strip">
       {t.strip.map((s) => <div><b>{s.k}</b><span>{s.v}</span></div>)}
+    </section>
+
+    <section id="cameras" class="sec cam">
+      <h2>{t.cam.h}</h2><p class="sub">{t.cam.sub}</p>
+      <div class="eq">
+        {t.cam.eq.map((e, i) => (<><div class="eq-card"><div class="ico">{e.i}</div><b>{e.h}</b><span>{e.p}</span></div>{i < 2 && <div class="eq-op">{i === 0 ? '+' : '='}</div>}</>))}
+      </div>
+      <div class="gives">
+        {t.cam.gives.map((g) => <div class="give"><span>{g.i}</span><b>{g.h}</b><small>{g.p}</small></div>)}
+      </div>
+      <div class="calc">
+        <h3>{t.cam.calc.h}</h3>
+        <div class="calc-row">
+          <label>{t.cam.calc.rooms}: <b id="n-out">4</b><input id="n" type="range" min="1" max="10" value="4" /></label>
+          <label>{t.cam.calc.price}<input id="p" type="number" min="0" step="1" value="20" /></label>
+          <div class="calc-total"><span>{t.cam.calc.total}</span><b id="sum">€80</b></div>
+        </div>
+        <p class="tiny">{t.cam.calc.note}</p>
+      </div>
+      <p class="tiny tested">{t.cam.tested}</p>
     </section>
 
     <section id="examples" class="sec">
@@ -179,6 +201,12 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
         if (document.hidden) { clearInterval(iv); } else { iv = setInterval(tick, 7500); }
       });
     })();
+    (function () {
+      var n = document.getElementById('n'), p = document.getElementById('p');
+      if (!n || !p) return;
+      function calc() { document.getElementById('n-out').textContent = n.value; document.getElementById('sum').textContent = '€' + Math.round(Number(n.value) * Number(p.value || 0)); }
+      n.addEventListener('input', calc); p.addEventListener('input', calc); calc();
+    })();
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.01, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.sec, .card, .chat').forEach(function (n) { n.classList.add('reveal'); io.observe(n); });
   </script>
@@ -203,6 +231,11 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
   .cmd { display:flex; align-items:center; gap:10px; background:#0a0919; border:1px solid var(--line); border-radius:14px; padding:10px 10px 10px 16px; margin:10px 0; max-width:100%; }
   .copy { background:#7c5cff; color:#fff; border:0; border-radius:10px; padding:8px 14px; font:inherit; font-weight:700; cursor:pointer; }
   .tiny { font-size:.85rem; color:var(--mut); }
+  .price { position:absolute; left:6%; bottom:6%; background:linear-gradient(135deg,#ffb86b,#ff7aa8); color:#2a1840; border-radius:18px; padding:8px 14px; transform:rotate(-6deg); box-shadow:0 10px 26px #ff7aa855; display:flex; flex-direction:column; line-height:1.1; } .price b { font-size:1.5rem; } .price small { font-size:.7rem; font-weight:700; opacity:.8; }
+  .eq { display:flex; align-items:stretch; gap:12px; flex-wrap:wrap; justify-content:center; margin:8px 0 28px; } .eq-card { flex:1 1 200px; max-width:260px; background:var(--card); border:1px solid var(--line); border-radius:22px; padding:20px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:2px; } .eq-card b { font-size:1.1rem; } .eq-card span { color:var(--mut); font-size:.9rem; } .eq-op { align-self:center; font-size:2rem; font-weight:800; color:var(--mint); }
+  .gives { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:28px; } .give { background:var(--bg2); border:1px solid var(--line); border-radius:18px; padding:14px; display:flex; flex-direction:column; gap:2px; } .give span { font-size:1.5rem; } .give small { color:var(--mut); }
+  .calc { background:linear-gradient(135deg,var(--bg2),var(--card)); border:1px solid var(--line); border-radius:24px; padding:24px; } .calc h3 { margin:0 0 12px; } .calc-row { display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; } .calc label { display:flex; flex-direction:column; gap:6px; color:var(--mut); font-weight:600; } .calc label b { color:var(--fg); } .calc input[type=range] { width:220px; accent-color:var(--acc); } .calc input[type=number] { width:110px; padding:8px 10px; border-radius:12px; border:1px solid var(--line); background:var(--bg); color:var(--fg); font:inherit; }
+  .calc-total { margin-left:auto; text-align:right; display:flex; flex-direction:column; } .calc-total span { color:var(--mut); font-size:.9rem; } .calc-total b { font-size:2.4rem; background:linear-gradient(90deg,#ffb86b,#ff7aa8); -webkit-background-clip:text; background-clip:text; color:transparent; } .tested { margin-top:16px; }
   .hero-art { position:relative; display:flex; justify-content:center; padding:40px 0; } .hero-art svg { filter:drop-shadow(0 20px 40px #5b3df566); }
   .bubble { position:absolute; background:var(--card); border:1px solid var(--line); padding:10px 14px; border-radius:18px; font-size:.9rem; max-width:210px; box-shadow:0 10px 30px #0004; animation:float 6s ease-in-out infinite; }
   .bubble { transition: opacity .35s; } .bubble.out { opacity:0; }
@@ -228,6 +261,6 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
   .cta-end { text-align:center; display:flex; flex-direction:column; align-items:center; } .cta-end .cta { justify-content:center; }
   footer { border-top:1px solid var(--line); padding:24px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; color:var(--mut); font-size:.9rem; max-width:1120px; margin:0 auto; }
   .reveal { opacity:0; transform:translateY(18px); transition:opacity .6s, transform .6s; } .reveal.in { opacity:1; transform:none; }
-  @media (max-width:860px) { .hero { grid-template-columns:1fr; } .hero-art { order:-1; padding:20px 0; } .hero-art svg { width:220px; height:220px; } .hero-art { flex-direction:column; align-items:center; gap:10px; } .bubble { position:static; max-width:320px; min-height:3.4em; animation:none; } .b2 { min-height:4.2em; } .strip { grid-template-columns:1fr 1fr; } .steps { grid-template-columns:1fr; } .privacy-box { grid-template-columns:1fr; padding:24px; } }
+  @media (max-width:860px) { .hero { grid-template-columns:1fr; } .hero-art { order:-1; padding:20px 0; } .hero-art svg { width:220px; height:220px; } .price { position:static; transform:none; flex-direction:row; align-items:center; gap:8px; } .calc-total { margin-left:0; text-align:left; } .hero-art { flex-direction:column; align-items:center; gap:10px; } .bubble { position:static; max-width:320px; min-height:3.4em; animation:none; } .b2 { min-height:4.2em; } .strip { grid-template-columns:1fr 1fr; } .steps { grid-template-columns:1fr; } .privacy-box { grid-template-columns:1fr; padding:24px; } }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } .bubble { animation:none; } html { scroll-behavior:auto; } }
 </style>

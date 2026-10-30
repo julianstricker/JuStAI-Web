@@ -1,14 +1,15 @@
 // Copy for the landing page, English (main language) and German.
 export const copy = {
   en: {
-    title: 'JuStAI5 – a local AI assistant for every room of your home',
-    metaDesc: 'JuStAI5 turns the cameras, microphones, speakers and screens you already own into one shared AI assistant that runs on your own computer.',
+    title: 'JuStAI5 – turn a €20 camera into a smart assistant',
+    metaDesc: 'JuStAI5 turns inexpensive network cameras like the TP-Link Tapo C200 (often under €20) into AI assistants that listen, see, remember and talk back. One camera per room, all running on your own computer.',
     copy: 'Copy',
     nav: { examples: 'What it can do', features: 'Features', install: 'Install', docs: 'Docs' },
     hero: {
-      eyebrow: 'Open source · runs at home · private',
-      h1a: 'One AI assistant.', h1b: 'Every room of your home.',
-      lead: 'JuStAI5 turns the cameras, microphones, speakers and screens you already own into one assistant that listens, sees, remembers and answers right where you are. It runs on your own computer.',
+      eyebrow: 'Cheap cameras · smart assistants · runs at home',
+      h1a: 'A €20 camera.', h1b: 'Now a smart assistant.',
+      lead: 'JuStAI5 turns inexpensive network cameras like the TP-Link Tapo C200 into AI assistants. They listen, see, remember and answer through their own speaker, in every room, all run by one program on your own computer.',
+      wake: '“Hey Justy” is just our example. You choose the wakeword: pick a built-in one or upload your own.', tag: '≈ €20', tagNote: 'Tapo camera, prices vary',
       cta: 'Install in 5 minutes', docs: 'Read the docs',
       req: 'Needs a Linux PC (x86_64) in your home network. The installer takes care of Docker.',
       convos: [
@@ -22,7 +23,7 @@ export const copy = {
     },
     strip: [
       { k: 'Local', v: 'wake word, speech and vision run on your machine' },
-      { k: 'Per room', v: 'answers come from the speaker in your room' },
+      { k: '≈ €20 per room', v: 'a Tapo camera has mic, speaker and eye in one' },
       { k: '3 languages', v: 'English, German and Italian' },
       { k: 'Open source', v: 'AGPL-3.0, plugins in Python' },
     ],
@@ -38,25 +39,34 @@ export const copy = {
       ],
       more: 'More examples',
     },
+    cam: {
+      h: 'Turn cheap cameras into smart assistants',
+      sub: 'No smart speaker per room. A network camera already has everything a room needs, and costs about as much as a pizza.',
+      eq: [{ i: '📷', h: 'Cheap camera', p: 'Tapo C200 and similar, around €20' }, { i: '🧠', h: 'JuStAI5', p: 'Free and open source' }, { i: '🏠', h: 'Smart room', p: 'Hears you, sees, answers' }],
+      gives: [{ i: '🎤', h: 'Microphone', p: 'listens for “Hey Justy”' }, { i: '🔊', h: 'Speaker', p: 'answers in the same room' }, { i: '👁', h: 'Eye', p: 'people, pets and objects' }, { i: '🎯', h: 'Pan and tilt', p: 'follows you through the room' }, { i: '🔒', h: 'Privacy mode', p: 'switch off by voice' }],
+      calc: { h: 'What does my home cost?', rooms: 'Rooms with a camera', price: 'Price per camera (€)', total: 'Cameras in total', note: 'Plus a PC that runs all the time (an old mini PC is enough) and a language model: a free Google API key or a local one. Prices are examples and vary.' },
+      tested: 'Tested with the TP-Link Tapo C200. Other ONVIF/RTSP cameras can be added; speaker output needs a camera with two-way audio.',
+    },
     how: {
       h: 'How it works',
       steps: [
-        { h: 'Create rooms', p: 'Living room, kitchen, bedroom. Each room gets its own microphone, speaker and optional camera or screen.' },
-        { h: 'Say “Hey Justy”', p: 'The assistant wakes up, understands you and answers on the speaker in the same room, never on its own voice.' },
+        { h: 'Put a camera in every room', p: 'A cheap Tapo camera (or any ONVIF/RTSP camera, or just a phone) becomes the microphone, speaker and eye of the room. Add it in the admin interface.' },
+        { h: 'Say “Hey Justy”', p: 'The assistant wakes up, understands you and answers on the speaker in the same room, never on its own voice. The wakeword is yours to choose.' },
         { h: 'Let it do things', p: 'It remembers, watches, reminds, controls devices and can even write new plugins for you.' },
       ],
     },
     features: {
       h: 'Everything in one assistant',
       items: [
+        { i: '📷', h: 'Cheap cameras, smart results', p: 'A camera of around €20 delivers video, microphone and speaker. JuStAI5 adds the brain: understanding, answering and remembering.' },
         { i: '🏠', h: 'Rooms and endpoints', p: 'It knows where you are and answers in the same room. A deterministic output router keeps replies from wandering off.' },
         { i: '👀', h: 'Sees and recognises', p: 'People, pets and objects through your cameras, with privacy masks and per-room switches.' },
         { i: '🧠', h: 'Remembers', p: 'Facts, habits and “the next time you see me” reminders, stored on your own machine.' },
         { i: '⚡', h: 'Automations by voice', p: 'Tell it a rule in plain language and it sets it up: events, jobs and conditions.' },
         { i: '🧩', h: 'Plugins', p: 'Drivers for Tapo, ONVIF and RTSP cameras, AI providers and more. It can write plugins for itself.' },
         { i: '📱', h: 'Phone as microphone', p: 'Use any phone, tablet or PC as microphone, speaker, camera and screen. Installable as an app.' },
+        { i: '🗣', h: 'Your own wakeword', p: 'Say “Hey Justy” or anything you like. Pick a built-in wakeword or upload your own openWakeWord model.' },
         { i: '🎯', h: 'Follows you', p: 'PTZ cameras can track a person around the room.' },
-        { i: '🌍', h: 'Speaks your language', p: 'English, German and Italian, in both conversation and interface.' },
       ],
     },
     privacy: {
@@ -68,7 +78,7 @@ export const copy = {
     install: {
       h: 'Install it', sub: 'You need one computer that runs all the time and about 15 minutes. No programming skills required.',
       needH: 'What you need',
-      need: ['A PC or mini PC with an x86_64 processor (Intel or AMD), running Linux, e.g. Ubuntu 24.04', '4 GB RAM (8 GB recommended) and 15 GB free disk space', 'A network connection in the same home network as your phones and cameras', 'A language model: a free Google API key, or a local one (Ollama)'],
+      need: ['One or more network cameras, e.g. TP-Link Tapo C200 (often under €20, with microphone, speaker and pan/tilt). A phone or tablet works to start.', 'A PC or mini PC with an x86_64 processor (Intel or AMD), running Linux, e.g. Ubuntu 24.04', '4 GB RAM (8 GB recommended) and 15 GB free disk space', 'A network connection in the same home network as your phones and cameras', 'A language model: a free Google API key, or a local one (Ollama)'],
       os: 'Raspberry Pi and other ARM computers are not supported. Windows and macOS are not tested.',
       tabs: ['Easiest: one command', 'I already have Docker', 'After installing: first steps'],
       s1h: 'Open a terminal', s1p: 'On your Linux computer press Ctrl+Alt+T, or search for “Terminal” in the menu.',
@@ -92,14 +102,15 @@ export const copy = {
     footer: { issues: 'Issues' },
   },
   de: {
-    title: 'JuStAI5 – ein lokaler KI-Assistent für jeden Raum deines Zuhauses',
-    metaDesc: 'JuStAI5 macht aus den Kameras, Mikrofonen, Lautsprechern und Bildschirmen, die du schon hast, einen gemeinsamen KI-Assistenten, der auf deinem eigenen Computer läuft.',
+    title: 'JuStAI5 – mach aus einer 20-€-Kamera einen smarten Assistenten',
+    metaDesc: 'JuStAI5 macht aus günstigen Netzwerkkameras wie der TP-Link Tapo C200 (oft unter 20 €) KI-Assistenten, die zuhören, sehen, sich erinnern und antworten. Eine Kamera pro Raum, alles auf deinem eigenen Computer.',
     copy: 'Kopieren',
     nav: { examples: 'Was er kann', features: 'Funktionen', install: 'Installieren', docs: 'Doku' },
     hero: {
-      eyebrow: 'Open Source · läuft zuhause · privat',
-      h1a: 'Ein KI-Assistent.', h1b: 'Jeder Raum deines Zuhauses.',
-      lead: 'JuStAI5 macht aus den Kameras, Mikrofonen, Lautsprechern und Bildschirmen, die du schon hast, einen Assistenten, der zuhört, sieht, sich erinnert und genau dort antwortet, wo du bist. Er läuft auf deinem eigenen Computer.',
+      eyebrow: 'Günstige Kameras · smarte Assistenten · läuft zuhause',
+      h1a: 'Eine 20-€-Kamera.', h1b: 'Jetzt ein smarter Assistent.',
+      lead: 'JuStAI5 macht aus günstigen Netzwerkkameras wie der TP-Link Tapo C200 KI-Assistenten. Sie hören zu, sehen, erinnern sich und antworten über ihren eigenen Lautsprecher, in jedem Raum, gesteuert von einem Programm auf deinem eigenen Computer.',
+      wake: '„Hey Justy“ ist nur unser Beispiel. Das Wakeword bestimmst du selbst: ein mitgeliefertes wählen oder ein eigenes hochladen.', tag: '≈ 20 €', tagNote: 'Tapo-Kamera, Preise schwanken',
       cta: 'In 5 Minuten installieren', docs: 'Zur Doku',
       req: 'Braucht einen Linux-PC (x86_64) in deinem Heimnetz. Docker richtet der Installer ein.',
       convos: [
@@ -113,7 +124,7 @@ export const copy = {
     },
     strip: [
       { k: 'Lokal', v: 'Wakeword, Sprache und Bilderkennung laufen auf deinem Rechner' },
-      { k: 'Pro Raum', v: 'Antworten kommen aus dem Lautsprecher in deinem Raum' },
+      { k: '≈ 20 € pro Raum', v: 'eine Tapo-Kamera hat Mikro, Lautsprecher und Auge in einem' },
       { k: '3 Sprachen', v: 'Deutsch, Englisch und Italienisch' },
       { k: 'Open Source', v: 'AGPL-3.0, Plugins in Python' },
     ],
@@ -129,25 +140,34 @@ export const copy = {
       ],
       more: 'Mehr Beispiele',
     },
+    cam: {
+      h: 'Mach günstige Kameras zu smarten Assistenten',
+      sub: 'Kein Smart Speaker pro Raum. Eine Netzwerkkamera hat schon alles, was ein Raum braucht, und kostet ungefähr so viel wie eine Pizza.',
+      eq: [{ i: '📷', h: 'Günstige Kamera', p: 'Tapo C200 und ähnliche, um die 20 €' }, { i: '🧠', h: 'JuStAI5', p: 'Kostenlos und Open Source' }, { i: '🏠', h: 'Smarter Raum', p: 'Hört dich, sieht, antwortet' }],
+      gives: [{ i: '🎤', h: 'Mikrofon', p: 'wartet auf „Hey Justy“' }, { i: '🔊', h: 'Lautsprecher', p: 'antwortet im selben Raum' }, { i: '👁', h: 'Auge', p: 'Personen, Haustiere, Objekte' }, { i: '🎯', h: 'Schwenken und Neigen', p: 'folgt dir durch den Raum' }, { i: '🔒', h: 'Privatmodus', p: 'per Sprache ausschalten' }],
+      calc: { h: 'Was kostet mein Zuhause?', rooms: 'Räume mit Kamera', price: 'Preis pro Kamera (€)', total: 'Kameras insgesamt', note: 'Dazu kommt ein PC, der dauerhaft läuft (ein alter Mini-PC reicht), und ein Sprachmodell: ein kostenloser Google-API-Key oder ein lokales. Preise sind Beispiele und schwanken.' },
+      tested: 'Getestet mit der TP-Link Tapo C200. Andere ONVIF/RTSP-Kameras lassen sich hinzufügen; Sprachausgabe braucht eine Kamera mit Zwei-Wege-Audio.',
+    },
     how: {
       h: 'So funktioniert es',
       steps: [
-        { h: 'Räume anlegen', p: 'Wohnzimmer, Küche, Schlafzimmer. Jeder Raum bekommt sein Mikrofon, seinen Lautsprecher und optional Kamera oder Bildschirm.' },
-        { h: '„Hey Justy“ sagen', p: 'Der Assistent wacht auf, versteht dich und antwortet im selben Raum, nie auf seine eigene Stimme.' },
+        { h: 'Eine Kamera pro Raum', p: 'Eine günstige Tapo-Kamera (oder jede ONVIF/RTSP-Kamera, oder einfach ein Handy) wird zu Mikrofon, Lautsprecher und Auge des Raums. Hinzufügen in der Admin-Oberfläche.' },
+        { h: '„Hey Justy“ sagen', p: 'Der Assistent wacht auf, versteht dich und antwortet im selben Raum, nie auf seine eigene Stimme. Das Wakeword wählst du selbst.' },
         { h: 'Dinge erledigen lassen', p: 'Er merkt sich Dinge, beobachtet, erinnert, steuert Geräte und schreibt sogar neue Plugins für dich.' },
       ],
     },
     features: {
       h: 'Alles in einem Assistenten',
       items: [
+        { i: '📷', h: 'Günstige Kameras, smarte Ergebnisse', p: 'Eine Kamera für etwa 20 € liefert Bild, Mikrofon und Lautsprecher. JuStAI5 ergänzt das Gehirn: verstehen, antworten und erinnern.' },
         { i: '🏠', h: 'Räume und Endpunkte', p: 'Er weiß, wo du bist, und antwortet im selben Raum. Ein deterministischer Output Router sorgt dafür, dass Antworten nicht abwandern.' },
         { i: '👀', h: 'Sieht und erkennt', p: 'Personen, Haustiere und Objekte über deine Kameras, mit Privatzonen und Schaltern pro Raum.' },
         { i: '🧠', h: 'Erinnert sich', p: 'Fakten, Gewohnheiten und „wenn du mich das nächste Mal siehst“-Erinnerungen, gespeichert auf deinem Rechner.' },
         { i: '⚡', h: 'Automationen per Sprache', p: 'Sag ihm eine Regel in normaler Sprache und er richtet sie ein: Ereignisse, Jobs und Bedingungen.' },
         { i: '🧩', h: 'Plugins', p: 'Treiber für Tapo-, ONVIF- und RTSP-Kameras, KI-Anbieter und mehr. Er kann sich selbst Plugins schreiben.' },
         { i: '📱', h: 'Handy als Mikrofon', p: 'Nutze jedes Handy, Tablet oder jeden PC als Mikrofon, Lautsprecher, Kamera und Bildschirm. Als App installierbar.' },
+        { i: '🗣', h: 'Dein eigenes Wakeword', p: 'Sag „Hey Justy“ oder was du willst. Wähle ein mitgeliefertes Wakeword oder lade dein eigenes openWakeWord-Modell hoch.' },
         { i: '🎯', h: 'Folgt dir', p: 'PTZ-Kameras können einer Person durch den Raum folgen.' },
-        { i: '🌍', h: 'Spricht deine Sprache', p: 'Deutsch, Englisch und Italienisch, im Gespräch und in der Oberfläche.' },
       ],
     },
     privacy: {
@@ -159,7 +179,7 @@ export const copy = {
     install: {
       h: 'Installieren', sub: 'Du brauchst einen Computer, der dauerhaft läuft, und etwa 15 Minuten. Programmierkenntnisse sind nicht nötig.',
       needH: 'Was du brauchst',
-      need: ['Einen PC oder Mini-PC mit x86_64-Prozessor (Intel oder AMD) unter Linux, z. B. Ubuntu 24.04', '4 GB RAM (empfohlen 8 GB) und 15 GB freien Speicherplatz', 'Eine Netzwerkverbindung im selben Heimnetz wie Handys und Kameras', 'Ein Sprachmodell: ein kostenloser Google-API-Key oder ein lokales (Ollama)'],
+      need: ['Eine oder mehrere Netzwerkkameras, z. B. TP-Link Tapo C200 (oft unter 20 €, mit Mikrofon, Lautsprecher und Schwenk/Neigung). Zum Start reicht auch ein Handy oder Tablet.', 'Einen PC oder Mini-PC mit x86_64-Prozessor (Intel oder AMD) unter Linux, z. B. Ubuntu 24.04', '4 GB RAM (empfohlen 8 GB) und 15 GB freien Speicherplatz', 'Eine Netzwerkverbindung im selben Heimnetz wie Handys und Kameras', 'Ein Sprachmodell: ein kostenloser Google-API-Key oder ein lokales (Ollama)'],
       os: 'Raspberry Pi und andere ARM-Rechner werden nicht unterstützt. Windows und macOS sind nicht getestet.',
       tabs: ['Am einfachsten: ein Befehl', 'Ich habe schon Docker', 'Danach: erste Schritte'],
       s1h: 'Terminal öffnen', s1p: 'Auf dem Linux-Rechner Strg+Alt+T drücken oder im Menü nach „Terminal“ suchen.',
