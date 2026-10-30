@@ -1,0 +1,15 @@
+---
+// The docs search lives at the top of the sidebar so the header stays identical to the landing page.
+import Default from '@astrojs/starlight/components/Sidebar.astro';
+import Search from '@astrojs/starlight/components/Search.astro';
+---
+<div class="sidebar-search"><Search /></div>
+<Default {...Astro.props}><slot /></Default>
+<style is:global>
+  .sidebar-search { position: fixed; z-index: 3; top: var(--sl-nav-height); left: 0; right: 0; padding: .75rem 1rem; background: var(--sl-color-bg-sidebar); border-bottom: 1px solid var(--sl-color-hairline-shade, var(--sl-color-hairline)); }
+  .sidebar-search site-search, .sidebar-search button { width: 100%; }
+  @media (min-width: 50rem) { .sidebar-search { right: auto; width: var(--sl-sidebar-width); } }
+  .sidebar-content { padding-top: 4.5rem !important; }
+  /* the sidebar drawer is hidden on mobile until opened */
+  @media (max-width: 49.99rem) { body:not([data-mobile-menu-expanded]) .sidebar-search { display: none; } }
+</style>
