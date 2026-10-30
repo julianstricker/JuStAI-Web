@@ -1,0 +1,12 @@
+:root {
+  --sl-color-accent-low: #2a2170;
+  --sl-color-accent: #7c5cff;
+  --sl-color-accent-high: #c9bfff;
+  --sl-font: ui-rounded, 'SF Pro Rounded', 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+:root[data-theme='light'] {
+  --sl-color-accent-low: #e2dbff;
+  --sl-color-accent: #5b3df5;
+  --sl-color-accent-high: #3b25b5;
+}
+.sl-markdown-content pre { border-radius: 14px; }

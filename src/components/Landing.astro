@@ -1,0 +1,226 @@
+---
+import Mascot from './Mascot.astro';
+import { installCommand, repo } from '../../site.config.mjs';
+import { copy } from '../i18n/landing';
+
+interface Props { lang: 'en' | 'de'; mascot?: 'robot' | 'house' | 'owl' }
+const { lang, mascot = 'robot' } = Astro.props;
+const t = copy[lang];
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pre = lang === 'de' ? `${b}/de` : b;
+const docs = (p: string) => `${pre}/docs/${p}/`;
+const other = lang === 'de' ? `${b}/` : `${b}/de/`;
+---
+<!doctype html>
+<html lang={lang} data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{t.title}</title>
+  <meta name="description" content={t.metaDesc} />
+  <meta property="og:title" content={t.title} /><meta property="og:description" content={t.metaDesc} />
+  <link rel="icon" href={`${b}/favicon.svg`} type="image/svg+xml" />
+  <link rel="alternate" hreflang="en" href={`${b}/`} /><link rel="alternate" hreflang="de" href={`${b}/de/`} />
+  <script is:inline>
+    try { const s = localStorage.getItem('theme'); if (s) document.documentElement.dataset.theme = s;
+      else if (matchMedia('(prefers-color-scheme: light)').matches) document.documentElement.dataset.theme = 'light'; } catch {}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href={lang === 'de' ? `${b}/de/` : `${b}/`}><Mascot variant={mascot} size={34} class="mini" /><span>JuStAI<b>5</b></span></a>
+    <nav>
+      <a href="#examples">{t.nav.examples}</a><a href="#features">{t.nav.features}</a><a href="#install">{t.nav.install}</a><a href={docs('overview')}>{t.nav.docs}</a>
+      <a href={`https://github.com/${repo}`} rel="noopener">GitHub</a>
+      <a class="pill" href={other}>{lang === 'de' ? 'EN' : 'DE'}</a>
+      <button id="theme" class="pill" aria-label="Toggle theme">🌓</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="glow"></div>
+      <div class="hero-text">
+        <p class="eyebrow">{t.hero.eyebrow}</p>
+        <h1>{t.hero.h1a} <span class="grad">{t.hero.h1b}</span></h1>
+        <p class="lead">{t.hero.lead}</p>
+        <div class="cta">
+          <a class="btn primary" href="#install">{t.hero.cta}</a>
+          <a class="btn" href={docs('overview')}>{t.hero.docs}</a>
+        </div>
+        <div class="cmd" data-copy={installCommand}>
+          <code><span class="prompt">$</span> {installCommand}</code>
+          <button type="button" class="copy">{t.copy}</button>
+        </div>
+        <p class="tiny">{t.hero.req}</p>
+      </div>
+      <div class="hero-art">
+        <div class="bubble b1">{t.hero.say1}</div>
+        <Mascot variant={mascot} size={300} mood="listening" />
+        <div class="bubble b2">{t.hero.say2}</div>
+      </div>
+    </section>
+
+    <section class="strip">
+      {t.strip.map((s) => <div><b>{s.k}</b><span>{s.v}</span></div>)}
+    </section>
+
+    <section id="examples" class="sec">
+      <h2>{t.examples.h}</h2><p class="sub">{t.examples.sub}</p>
+      <div class="chats">
+        {t.examples.items.map((c) => (
+          <div class="chat"><div class="me">🗣 {c.q}</div><div class="ai"><Mascot variant={mascot} size={28} class="mini" /> <span>{c.a}</span></div></div>
+        ))}
+      </div>
+      <p class="more"><a href={docs('examples')}>{t.examples.more} →</a></p>
+    </section>
+
+    <section class="sec how">
+      <h2>{t.how.h}</h2>
+      <ol class="steps">
+        {t.how.steps.map((s, i) => <li><span class="num">{i + 1}</span><h3>{s.h}</h3><p>{s.p}</p></li>)}
+      </ol>
+    </section>
+
+    <section id="features" class="sec">
+      <h2>{t.features.h}</h2>
+      <div class="grid">
+        {t.features.items.map((f) => <div class="card"><div class="ico">{f.i}</div><h3>{f.h}</h3><p>{f.p}</p></div>)}
+      </div>
+    </section>
+
+    <section class="sec privacy">
+      <div class="privacy-box">
+        <div><h2>{t.privacy.h}</h2><p>{t.privacy.p}</p><a href={docs('security')}>{t.privacy.more} →</a></div>
+        <ul>{t.privacy.items.map((x) => <li>{x}</li>)}</ul>
+      </div>
+    </section>
+
+    <section id="install" class="sec install">
+      <h2>{t.install.h}</h2><p class="sub">{t.install.sub}</p>
+
+      <div class="need">
+        <h3>{t.install.needH}</h3>
+        <ul>{t.install.need.map((n) => <li>{n}</li>)}</ul>
+        <p class="warn">{t.install.os}</p>
+      </div>
+
+      <div class="tabs" role="tablist">
+        {t.install.tabs.map((x, i) => <button role="tab" class={i === 0 ? 'on' : ''} data-tab={i}>{x}</button>)}
+      </div>
+
+      <div class="tabpanel" data-panel="0">
+        <ol class="wiz">
+          <li><h4>{t.install.s1h}</h4><p>{t.install.s1p}</p></li>
+          <li><h4>{t.install.s2h}</h4><p>{t.install.s2p}</p>
+            <div class="cmd" data-copy={installCommand}><code><span class="prompt">$</span> {installCommand}</code><button type="button" class="copy">{t.copy}</button></div></li>
+          <li><h4>{t.install.s3h}</h4><p>{t.install.s3p} <a href={docs('installation') + t.install.keyAnchor}>{t.install.keyHelp}</a></p></li>
+          <li><h4>{t.install.s4h}</h4><p>{t.install.s4p}</p></li>
+          <li><h4>{t.install.s5h}</h4><p>{t.install.s5p}</p></li>
+        </ol>
+      </div>
+      <div class="tabpanel" data-panel="1" hidden>
+        <ol class="wiz">
+          <li><h4>{t.install.d1}</h4>
+            <div class="cmd" data-copy={`git clone https://github.com/${repo}.git && cd JuStAI5 && cp .env.example .env`}><code><span class="prompt">$</span> git clone https://github.com/{repo}.git &amp;&amp; cd JuStAI5 &amp;&amp; cp .env.example .env</code><button type="button" class="copy">{t.copy}</button></div></li>
+          <li><h4>{t.install.d2}</h4><p>{t.install.d2p}</p></li>
+          <li><h4>{t.install.d3}</h4>
+            <div class="cmd" data-copy="docker compose up -d --build"><code><span class="prompt">$</span> docker compose up -d --build</code><button type="button" class="copy">{t.copy}</button></div></li>
+          <li><h4>{t.install.d4}</h4><p>{t.install.d4p}</p>
+            <div class="cmd" data-copy="docker compose exec core cat /data/initial_admin_password.txt"><code><span class="prompt">$</span> docker compose exec core cat /data/initial_admin_password.txt</code><button type="button" class="copy">{t.copy}</button></div></li>
+        </ol>
+      </div>
+      <div class="tabpanel" data-panel="2" hidden>
+        <div class="firstsec">
+          <h3>{t.install.firstH}</h3>
+          <ol class="wiz">{t.install.first.map((x) => <li><h4>{x.h}</h4><p>{x.p}</p></li>)}</ol>
+        </div>
+      </div>
+      <p class="more"><a href={docs('installation')}>{t.install.full} →</a></p>
+    </section>
+
+    <section class="sec cta-end">
+      <Mascot variant={mascot} size={140} />
+      <h2>{t.end.h}</h2>
+      <div class="cta"><a class="btn primary" href="#install">{t.hero.cta}</a><a class="btn" href={docs('plugins')}>{t.end.plugins}</a></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Julian Stricker · AGPL-3.0</span>
+    <span><a href={docs('overview')}>{t.nav.docs}</a> · <a href={`https://github.com/${repo}`}>GitHub</a> · <a href={`https://github.com/${repo}/issues`}>{t.footer.issues}</a></span>
+  </footer>
+
+  <script is:inline>
+    document.querySelectorAll('.cmd').forEach(function (el) {
+      var btn = el.querySelector('.copy'); var label = btn.textContent;
+      btn.addEventListener('click', function () {
+        navigator.clipboard.writeText(el.dataset.copy).then(function () {
+          btn.textContent = '✓'; setTimeout(function () { btn.textContent = label; }, 1600);
+        });
+      });
+    });
+    var tabs = document.querySelectorAll('[data-tab]');
+    tabs.forEach(function (tb) { tb.addEventListener('click', function () {
+      tabs.forEach(function (x) { x.classList.toggle('on', x === tb); });
+      document.querySelectorAll('[data-panel]').forEach(function (p) { p.hidden = p.dataset.panel !== tb.dataset.tab; });
+    }); });
+    document.getElementById('theme').addEventListener('click', function () {
+      var n = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      document.documentElement.dataset.theme = n; try { localStorage.setItem('theme', n); } catch (e) {}
+    });
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.01, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.sec, .card, .chat').forEach(function (n) { n.classList.add('reveal'); io.observe(n); });
+  </script>
+</body>
+</html>
+
+<style is:global>
+  :root { --bg:#0e0d24; --bg2:#17153a; --card:#1c1a44; --fg:#f4f1ff; --mut:#b4b0d6; --acc:#7c5cff; --mint:#3ee8b5; --peach:#ffb86b; --line:#ffffff1a; --ico:#2a2670; }
+  :root[data-theme='light'] { --bg:#faf8ff; --bg2:#efeaff; --card:#fff; --fg:#17143a; --mut:#5d5890; --acc:#5b3df5; --mint:#0c9e78; --peach:#e67e22; --line:#17143a1a; --ico:#e8e1ff; }
+  * { box-sizing: border-box; } html { scroll-behavior: smooth; }
+  body { margin:0; background:var(--bg); color:var(--fg); font-family: ui-rounded,'SF Pro Rounded','Nunito',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  a { color: var(--acc); } :root[data-theme='dark'] a { color:#b3a2ff; }
+  .nav { position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:12px; padding:10px 20px; backdrop-filter: blur(14px); background: color-mix(in srgb, var(--bg) 78%, transparent); border-bottom:1px solid var(--line); }
+  .brand { display:flex; align-items:center; gap:8px; font-weight:800; font-size:1.2rem; color:var(--fg)!important; text-decoration:none; } .brand b { color:var(--mint); }
+  .nav nav { display:flex; align-items:center; gap:16px; flex-wrap:wrap; justify-content:flex-end; } .nav nav a { color:var(--mut); text-decoration:none; font-weight:600; font-size:.95rem; } .nav nav a:hover { color:var(--fg); }
+  .pill { border:1px solid var(--line); background:transparent; color:var(--fg)!important; border-radius:99px; padding:4px 12px; cursor:pointer; font:inherit; font-size:.85rem; }
+  main { overflow:hidden; } .sec, .hero, .strip { max-width:1120px; margin:0 auto; padding:72px 20px; }
+  .hero { position:relative; display:grid; grid-template-columns:1.1fr .9fr; gap:32px; align-items:center; padding-top:56px; }
+  .hero > *, .privacy-box > * { min-width:0; }
+  .glow { position:absolute; inset:-40px -10% auto; height:520px; background: radial-gradient(40% 50% at 70% 40%, #7c5cff55, transparent 70%), radial-gradient(30% 40% at 25% 30%, #3ee8b533, transparent 70%); z-index:-1; filter: blur(10px); }
+  .eyebrow { color:var(--mint); font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:.8rem; margin:0 0 8px; }
+  h1 { font-size:clamp(2.3rem,5.4vw,4rem); line-height:1.05; margin:0 0 16px; letter-spacing:-.02em; }
+  .grad { background:linear-gradient(90deg,#9b82ff,#3ee8b5); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .lead { font-size:1.2rem; color:var(--mut); max-width:34em; }
+  .cta { display:flex; gap:12px; flex-wrap:wrap; margin:22px 0; } .btn { padding:12px 22px; border-radius:14px; text-decoration:none; font-weight:700; border:1px solid var(--line); color:var(--fg)!important; }
+  .btn.primary { background:linear-gradient(135deg,#8b6cff,#5b3df5); border-color:transparent; color:#fff!important; box-shadow:0 8px 28px #5b3df566; } .btn:hover { transform:translateY(-1px); }
+  .cmd { display:flex; align-items:center; gap:10px; background:#0a0919; border:1px solid var(--line); border-radius:14px; padding:10px 10px 10px 16px; margin:10px 0; max-width:100%; }
+  :root[data-theme='light'] .cmd { background:#17143a; } .cmd code { flex:1; color:#e8e4ff; font-size:.85rem; overflow-x:auto; white-space:nowrap; scrollbar-width:none; } .cmd .prompt { color:var(--mint); }
+  .copy { background:#7c5cff; color:#fff; border:0; border-radius:10px; padding:8px 14px; font:inherit; font-weight:700; cursor:pointer; }
+  .tiny { font-size:.85rem; color:var(--mut); }
+  .hero-art { position:relative; display:flex; justify-content:center; padding:40px 0; } .hero-art svg { filter:drop-shadow(0 20px 40px #5b3df566); }
+  .bubble { position:absolute; background:var(--card); border:1px solid var(--line); padding:10px 14px; border-radius:18px; font-size:.9rem; max-width:210px; box-shadow:0 10px 30px #0004; animation:float 6s ease-in-out infinite; }
+  .b1 { top:0; left:-10px; border-bottom-left-radius:4px; } .b2 { bottom:0; right:-10px; border-bottom-right-radius:4px; animation-delay:-3s; background:linear-gradient(135deg,#6f4fff,#4a35d6); color:#fff; border:0; }
+  @keyframes float { 50% { transform:translateY(-8px) } }
+  .strip { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding-top:0; padding-bottom:0; } .strip div { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:16px; display:flex; flex-direction:column; } .strip b { color:var(--mint); font-size:1.15rem; } .strip span { color:var(--mut); font-size:.9rem; }
+  h2 { font-size:clamp(1.8rem,3.4vw,2.6rem); margin:0 0 8px; letter-spacing:-.01em; } .sub { color:var(--mut); font-size:1.1rem; margin:0 0 28px; max-width:40em; }
+  .chats { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; margin-top:24px; }
+  .chat { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:18px; display:flex; flex-direction:column; gap:10px; }
+  .me { align-self:flex-start; background:var(--ico); padding:10px 14px; border-radius:16px 16px 16px 4px; } .ai { display:flex; gap:8px; align-items:flex-start; color:var(--mut); } .ai span { background:var(--bg2); padding:10px 14px; border-radius:16px 16px 4px 16px; color:var(--fg); }
+  .more { margin-top:20px; font-weight:700; }
+  .steps { list-style:none; padding:0; margin:28px 0 0; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; } .steps li { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:24px; position:relative; }
+  .num { display:inline-grid; place-items:center; width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,#8b6cff,#3ee8b5); color:#0e0d24; font-weight:800; } .steps h3 { margin:12px 0 4px; } .steps p { margin:0; color:var(--mut); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin-top:24px; } .card { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:22px; transition:transform .2s, border-color .2s; } .card:hover { transform:translateY(-3px); border-color:var(--acc); }
+  .ico { width:48px; height:48px; border-radius:14px; background:var(--ico); display:grid; place-items:center; font-size:1.5rem; } .card h3 { margin:14px 0 4px; } .card p { margin:0; color:var(--mut); }
+  .privacy-box { display:grid; grid-template-columns:1.2fr 1fr; gap:28px; background:linear-gradient(135deg,var(--bg2),var(--card)); border:1px solid var(--line); border-radius:28px; padding:36px; align-items:center; } .privacy-box ul { margin:0; padding:0; list-style:none; display:grid; gap:10px; } .privacy-box li::before { content:'✓'; color:var(--mint); font-weight:900; margin-right:10px; }
+  .install { scroll-margin-top:60px; } .need { background:var(--card); border:1px solid var(--line); border-radius:20px; padding:18px 22px; margin-bottom:22px; } .need h3 { margin:0 0 6px; } .need ul { margin:0; padding-left:20px; color:var(--mut); } .warn { margin:10px 0 0; color:var(--peach); font-weight:600; }
+  .tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; } .tabs button { border:1px solid var(--line); background:transparent; color:var(--fg); padding:9px 18px; border-radius:99px; font:inherit; font-weight:700; cursor:pointer; } .tabs button.on { background:var(--acc); border-color:var(--acc); color:#fff; }
+  .wiz { list-style:none; counter-reset:w; padding:0; margin:0; display:grid; gap:14px; } .wiz > li { counter-increment:w; position:relative; background:var(--card); border:1px solid var(--line); border-radius:20px; padding:18px 20px 18px 66px; }
+  .wiz > li::before { content:counter(w); position:absolute; left:18px; top:18px; width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,#8b6cff,#3ee8b5); color:#0e0d24; display:grid; place-items:center; font-weight:800; } .wiz h4 { margin:0 0 4px; font-size:1.05rem; } .wiz p { margin:0; color:var(--mut); }
+  .cta-end { text-align:center; display:flex; flex-direction:column; align-items:center; } .cta-end .cta { justify-content:center; }
+  footer { border-top:1px solid var(--line); padding:24px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; color:var(--mut); font-size:.9rem; max-width:1120px; margin:0 auto; }
+  .reveal { opacity:0; transform:translateY(18px); transition:opacity .6s, transform .6s; } .reveal.in { opacity:1; transform:none; }
+  @media (max-width:860px) { .hero { grid-template-columns:1fr; } .hero-art { order:-1; padding:20px 0; } .hero-art svg { width:220px; height:220px; } .bubble { display:none; } .strip { grid-template-columns:1fr 1fr; } .steps { grid-template-columns:1fr; } .privacy-box { grid-template-columns:1fr; padding:24px; } .nav nav a:not(.pill) { display:none; } .nav nav a[href='#install'] { display:inline; } }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } .bubble { animation:none; } html { scroll-behavior:auto; } }
+</style>
