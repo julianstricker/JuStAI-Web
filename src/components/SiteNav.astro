@@ -1,0 +1,50 @@
+---
+// Top navigation shared by the landing page and the Starlight docs (via Header.astro).
+import Mascot from './Mascot.astro';
+import { repo } from '../../site.config.mjs';
+import { copy } from '../i18n/landing';
+
+interface Props { lang?: 'en' | 'de' }
+const { lang = 'en' } = Astro.props;
+const t = copy[lang].nav;
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pre = lang === 'de' ? `${b}/de` : b;
+// the same page in the other language (landing or docs)
+const path = Astro.url.pathname;
+const other = lang === 'de' ? path.replace(`${b}/de`, b || '/') : path.replace(b, `${b}/de`);
+const home = lang === 'de' ? `${b}/de/` : `${b}/`;
+---
+<header class="nav">
+  <a class="brand" href={home}><Mascot variant="ring" size={34} class="mini" /><span>JuStAI<b>5</b></span></a>
+  <nav>
+    <a href={`${home}#examples`}>{t.examples}</a><a href={`${home}#features`}>{t.features}</a><a class="keep" href={`${home}#install`}>{t.install}</a><a href={`${pre}/docs/overview/`}>{t.docs}</a>
+    <a href={`https://github.com/${repo}`} rel="noopener">GitHub</a>
+    <slot />
+    <a class="pill" href={other}>{lang === 'de' ? 'EN' : 'DE'}</a>
+    <button id="theme" class="pill" aria-label="Toggle theme">🌓</button>
+  </nav>
+</header>
+<script is:inline>
+  (function () {
+    var btn = document.getElementById('theme');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var n = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      document.documentElement.dataset.theme = n;
+      try { localStorage.setItem('starlight-theme', n); } catch (e) {}
+    });
+  })();
+</script>
+<style is:global>
+  :root { --bg:#0e0d24; --bg2:#17153a; --card:#1c1a44; --fg:#f4f1ff; --mut:#b4b0d6; --acc:#7c5cff; --mint:#3ee8b5; --peach:#ffb86b; --line:#ffffff1a; --ico:#2a2670; }
+  :root[data-theme='light'] { --bg:#faf8ff; --bg2:#efeaff; --card:#fff; --fg:#17143a; --mut:#5d5890; --acc:#5b3df5; --mint:#0c9e78; --peach:#e67e22; --line:#17143a1a; --ico:#e8e1ff; }
+  .nav { position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:12px; padding:10px 20px; backdrop-filter: blur(14px); background: color-mix(in srgb, var(--bg) 78%, transparent); border-bottom:1px solid var(--line); }
+  .brand { display:flex; align-items:center; gap:8px; font-weight:800; font-size:1.2rem; color:var(--fg)!important; text-decoration:none; } .brand b { color:var(--mint); }
+  .nav nav { display:flex; align-items:center; gap:16px; flex-wrap:wrap; justify-content:flex-end; } .nav nav a { color:var(--mut); text-decoration:none; font-weight:600; font-size:.95rem; } .nav nav a:hover { color:var(--fg); }
+  .pill { border:1px solid var(--line); background:transparent; color:var(--fg)!important; border-radius:99px; padding:4px 12px; cursor:pointer; font:inherit; font-size:.85rem; }
+  .nav nav a:not(.pill) { }
+  @media (max-width:860px) { .nav nav a:not(.pill):not(.keep) { display:none; } }
+  .nav nav a { white-space:nowrap; } .header .nav nav { flex-wrap:nowrap; } .header .nav { height:100%; }
+  @media (max-width:1150px) { .header .nav nav > a:not(.pill):not(.keep) { display:none; } }
+  .header .nav { position:static; border:0; background:none; backdrop-filter:none; width:100%; padding:0; }
+</style>

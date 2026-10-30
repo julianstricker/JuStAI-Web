@@ -1,0 +1,10 @@
+---
+// Replaces the Starlight header so the docs share the landing page navigation.
+import SiteNav from './SiteNav.astro';
+import Search from '@astrojs/starlight/components/Search.astro';
+const lang = Astro.locals.starlightRoute.locale === 'de' ? 'de' : 'en';
+---
+<SiteNav lang={lang}><Search /></SiteNav>
+<style>
+  :global(.header) { padding-block: 0; }
+</style>

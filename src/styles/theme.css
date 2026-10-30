@@ -10,3 +10,7 @@
   --sl-color-accent-high: #3b25b5;
 }
 .sl-markdown-content pre { border-radius: 14px; }
+
+/* match the landing page palette */
+:root { --sl-color-bg: #0e0d24; --sl-color-bg-nav: #0e0d24; --sl-color-bg-sidebar: #0e0d24; --sl-color-hairline: #ffffff1a; }
+:root[data-theme='light'] { --sl-color-bg: #faf8ff; --sl-color-bg-nav: #faf8ff; --sl-color-bg-sidebar: #faf8ff; --sl-color-hairline: #17143a1a; }
