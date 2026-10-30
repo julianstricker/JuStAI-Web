@@ -1,0 +1,75 @@
+---
+title: Dokumentation
+description: Alles, was du zum Installieren, Benutzen und Erweitern von JuStAI5 brauchst.
+sidebar:
+  label: Doku-Start
+---
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Willkommen! JuStAI5 macht aus günstigen Netzwerkkameras, Mikrofonen, Lautsprechern und Bildschirmen einen lokalen KI-Assistenten für jeden Raum. Such dir den Weg, der zu dir passt.
+
+![So funktioniert JuStAI5]({{base}}/img/docs/how.de.svg)
+
+## Finde deinen Weg
+
+<CardGrid>
+  <LinkCard title="Ich will es ausprobieren" description="Ein Befehl, etwa 15 Minuten, ohne Programmieren." href="{{base}}/de/docs/installation/" />
+  <LinkCard title="Was kann ich fragen?" description="Echte Beispielgespräche als Ideengeber." href="{{base}}/de/docs/examples/" />
+  <LinkCard title="Ich will mitbauen" description="Plugins und Änderungen per Vibe Coding." href="{{base}}/de/docs/vibe-coding/" />
+  <LinkCard title="Ich will wissen, wie es funktioniert" description="Architektur, Technik und Entscheidungen." href="{{base}}/de/docs/architecture/" />
+</CardGrid>
+
+## 1. Loslegen
+
+<CardGrid>
+  <Card title="Überblick" icon="open-book">Was JuStAI5 ist, was es kann und wie die Teile zusammenspielen. [Überblick lesen]({{base}}/de/docs/overview/)</Card>
+  <Card title="Installation" icon="rocket">Vom leeren Linux-PC zum ersten Gespräch. [Schritt für Schritt installieren]({{base}}/de/docs/installation/)</Card>
+</CardGrid>
+
+## 2. Zuhause einrichten
+
+Einmal erledigen, in dieser Reihenfolge.
+
+<CardGrid>
+  <Card title="Räume" icon="puzzle">Räume, Interaction Endpoints und wohin Antworten gehen. [Räume]({{base}}/de/docs/rooms/)</Card>
+  <Card title="Kameras und Geräte" icon="camera">Kameras, Mikrofone und Lautsprecher hinzufügen. [Geräte]({{base}}/de/docs/devices/)</Card>
+  <Card title="Bildschirme und Geräte-App" icon="laptop">Handys, Tablets und TVs als Bildschirm, Mikrofon und Lautsprecher. [Displays]({{base}}/de/docs/displays/)</Card>
+  <Card title="Sprache und Wakeword" icon="star">Wakeword, Echo-Behandlung und Sprechen ohne Pause. [Audio]({{base}}/de/docs/audio/)</Card>
+</CardGrid>
+
+## 3. Täglich nutzen
+
+<CardGrid>
+  <Card title="KI-Modelle und Sprachen" icon="random">Gemini, Ollama, Fallback, Datenschutzregeln und Kosten. [KI]({{base}}/de/docs/ai/)</Card>
+  <Card title="Sehen und Erkennen" icon="magnifier">Personen, Tiere, Objekte und Zustandsdetektoren. [Vision]({{base}}/de/docs/vision/)</Card>
+  <Card title="Bewegliche Kameras" icon="pointer">Schwenken, Neigen, Zoom und Privatmodus. [PTZ]({{base}}/de/docs/ptz/)</Card>
+  <Card title="Gedächtnis" icon="heart">Was der Assistent sich merkt und vergisst. [Gedächtnis]({{base}}/de/docs/memory/)</Card>
+  <Card title="Automationen" icon="setting">Dinge tun, wenn etwas passiert. [Automationen]({{base}}/de/docs/automations/)</Card>
+</CardGrid>
+
+## 4. Erweitern
+
+<CardGrid>
+  <Card title="Vibe Coding" icon="rocket">JuStAI5 mit einem KI-Coding-Assistenten weiterbauen. [Loslegen]({{base}}/de/docs/vibe-coding/)</Card>
+  <Card title="Plugins" icon="puzzle">Manifest, Berechtigungen, Sandbox und SDK. [Plugins]({{base}}/de/docs/plugins/)</Card>
+</CardGrid>
+
+## 5. Betreiben und absichern
+
+<CardGrid>
+  <Card title="Betrieb" icon="download">Updates, Backups, Ports, TLS und lokale KI mit Ollama. [Betrieb]({{base}}/de/docs/deployment/)</Card>
+  <Card title="Sicherheit und Datenschutz" icon="approve-check">Was zu Hause bleibt und wie Daten geschützt werden. [Sicherheit]({{base}}/de/docs/security/)</Card>
+</CardGrid>
+
+## 6. Unter der Haube
+
+<CardGrid>
+  <Card title="Architektur" icon="seti:favicon">Container, Module und Datenfluss. [Architektur]({{base}}/de/docs/architecture/)</Card>
+  <Card title="Technik-Stack" icon="laptop">Jede Bibliothek und warum sie gewählt wurde. [Technik-Stack]({{base}}/de/docs/tech-stack/)</Card>
+  <Card title="Entwicklung und Tests" icon="setting">Entwicklungsumgebung einrichten und Tests ausführen. [Entwicklung]({{base}}/de/docs/development/) · [Tests]({{base}}/de/docs/testing/)</Card>
+  <Card title="Entscheidungen (ADR)" icon="document">Warum die Dinge so sind, wie sie sind. [ADRs]({{base}}/de/docs/adr/)</Card>
+</CardGrid>
+
+## Hilfe nötig?
+
+Fragen und Ideen gehören in die [GitHub Discussions](https://github.com/julianstricker/JuStAI5/discussions), Fehler und Feature-Wünsche in die [GitHub Issues](https://github.com/julianstricker/JuStAI5/issues).

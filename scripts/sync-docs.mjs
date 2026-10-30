@@ -70,6 +70,25 @@ function rewriteLinks(text, fromRel) {
 }
 const readdirSyncSafe = (p) => { try { return readdirSync(p).length >= 0; } catch { return false; } };
 
+// Diagrams (public/img/docs/<name>.<lang>.svg, made by make-diagrams.mjs) shown after the intro of a page.
+const figures = {
+  overview: ['how', { en: 'How JuStAI5 works: devices in every room, your server at home, an AI model, answers back in the same room', de: 'So funktioniert JuStAI5: Geräte in jedem Raum, dein Server zu Hause, ein KI-Modell, Antworten im selben Raum' }],
+  installation: ['inst', { en: 'Installation in four steps', de: 'Installation in vier Schritten' }],
+  rooms: ['rooms', { en: 'A room contains devices; an interaction endpoint combines them; room policies decide what is allowed', de: 'Ein Raum enthält Geräte; ein Interaction Endpoint kombiniert sie; Raum-Richtlinien bestimmen, was erlaubt ist' }],
+  audio: ['pipe', { en: 'From a spoken sentence to the answer', de: 'Vom gesprochenen Satz zur Antwort' }],
+  security: ['priv', { en: 'What stays on your server and what may go to a cloud AI', de: 'Was auf deinem Server bleibt und was an eine Cloud-KI gehen darf' }],
+  architecture: ['arch', { en: 'Docker containers and networks', de: 'Docker-Container und Netzwerke' }],
+  'vibe-coding': ['vibe', { en: 'Three ways to build JuStAI5 further', de: 'Drei Wege, JuStAI5 weiterzubauen' }],
+};
+function addFigure(text, { lang, slug }) {
+  const f = figures[slug];
+  if (!f) return text;
+  const img = `\n\n![${f[1][lang]}](${base}/img/docs/${f[0]}.${lang}.svg)\n\n`;
+  const m = text.match(/^\s*\n?([^\n#|`>*\-][^\n]*\n)+/); // first plain paragraph
+  if (!m) return img.trimStart() + text;
+  return text.slice(0, m[0].length) + img + text.slice(m[0].length);
+}
+
 function convert(rel) {
   let text = readFileSync(path.join(src, rel), 'utf8');
   const { lang } = slugOf(rel);
@@ -79,6 +98,7 @@ function convert(rel) {
   // drop the "Deutsch · English" switcher line, Starlight has its own language picker
   text = text.replace(/^\*(\[[^\]]+\]\([^)]*\)|Deutsch|English)( · | ?· ?)(\[[^\]]+\]\([^)]*\)|Deutsch|English)\*\s*\n/m, '');
   text = rewriteLinks(text, rel);
+  text = addFigure(text, slugOf(rel));
   // Starlight renders the title itself; keep ASCII diagrams intact (code fences untouched).
   const { slug } = slugOf(rel);
   const dir = path.join(out, lang === 'de' ? 'de' : '', 'docs');
@@ -96,4 +116,11 @@ const list = [
   ...readdirSync(path.join(src, 'docs/de/adr')).map((f) => `docs/de/adr/${f}`),
 ];
 for (const rel of list) convert(rel);
+
+// Hub pages (docs landing, in src/hub/*.mdx) with {{base}} replaced
+for (const lang of ['en', 'de']) {
+  const dir = path.join(out, lang === 'de' ? 'de' : '', 'docs');
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(path.join(dir, 'index.mdx'), readFileSync(path.join(root, 'src/hub', `${lang}.mdx`), 'utf8').replaceAll('{{base}}', base));
+}
 console.log(`Synced ${list.length} docs from ${src}`);

@@ -1,0 +1,75 @@
+---
+title: Documentation
+description: Everything you need to install, use and extend JuStAI5.
+sidebar:
+  label: Docs home
+---
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Welcome! JuStAI5 turns cheap network cameras, microphones, speakers and screens into a local AI assistant for every room. Pick the path that fits you.
+
+![How JuStAI5 works]({{base}}/img/docs/how.en.svg)
+
+## Find your path
+
+<CardGrid>
+  <LinkCard title="I want to try it" description="One command, about 15 minutes, no programming." href="{{base}}/docs/installation/" />
+  <LinkCard title="What can I ask?" description="Real example conversations to get ideas." href="{{base}}/docs/examples/" />
+  <LinkCard title="I want to build on it" description="Plugins and changes by vibe coding." href="{{base}}/docs/vibe-coding/" />
+  <LinkCard title="I want to know how it works" description="Architecture, technology and decisions." href="{{base}}/docs/architecture/" />
+</CardGrid>
+
+## 1. Start here
+
+<CardGrid>
+  <Card title="Overview" icon="open-book">What JuStAI5 is, what it can do and how the pieces fit. [Read the overview]({{base}}/docs/overview/)</Card>
+  <Card title="Installation" icon="rocket">From an empty Linux PC to your first conversation. [Install step by step]({{base}}/docs/installation/)</Card>
+</CardGrid>
+
+## 2. Set up your home
+
+Do these once, in this order.
+
+<CardGrid>
+  <Card title="Rooms" icon="puzzle">Rooms, interaction endpoints and where answers go. [Rooms]({{base}}/docs/rooms/)</Card>
+  <Card title="Cameras and devices" icon="camera">Add cameras, microphones and speakers. [Devices]({{base}}/docs/devices/)</Card>
+  <Card title="Screens and device app" icon="laptop">Use phones, tablets and TVs as screens, microphones and speakers. [Displays]({{base}}/docs/displays/)</Card>
+  <Card title="Voice and wakeword" icon="star">Wakeword, echo handling and speaking without a pause. [Audio]({{base}}/docs/audio/)</Card>
+</CardGrid>
+
+## 3. Use it every day
+
+<CardGrid>
+  <Card title="AI models and languages" icon="random">Gemini, Ollama, fallback, privacy rules and costs. [AI]({{base}}/docs/ai/)</Card>
+  <Card title="Seeing and recognising" icon="magnifier">People, pets, objects and state detectors. [Vision]({{base}}/docs/vision/)</Card>
+  <Card title="Moving cameras" icon="pointer">Pan, tilt, zoom and privacy mode. [PTZ]({{base}}/docs/ptz/)</Card>
+  <Card title="Memory" icon="heart">What the assistant remembers and forgets. [Memory]({{base}}/docs/memory/)</Card>
+  <Card title="Automations" icon="setting">Do things when something happens. [Automations]({{base}}/docs/automations/)</Card>
+</CardGrid>
+
+## 4. Extend it
+
+<CardGrid>
+  <Card title="Vibe coding" icon="rocket">Build JuStAI5 further with an AI coding assistant. [Start]({{base}}/docs/vibe-coding/)</Card>
+  <Card title="Plugins" icon="puzzle">Manifest, permissions, sandbox and the SDK. [Plugins]({{base}}/docs/plugins/)</Card>
+</CardGrid>
+
+## 5. Run and secure it
+
+<CardGrid>
+  <Card title="Deployment" icon="download">Updates, backups, ports, TLS and local AI with Ollama. [Deployment]({{base}}/docs/deployment/)</Card>
+  <Card title="Security and privacy" icon="approve-check">What stays at home and how data is protected. [Security]({{base}}/docs/security/)</Card>
+</CardGrid>
+
+## 6. Under the hood
+
+<CardGrid>
+  <Card title="Architecture" icon="seti:favicon">Containers, modules and data flow. [Architecture]({{base}}/docs/architecture/)</Card>
+  <Card title="Technology stack" icon="laptop">Every library and why it was chosen. [Tech stack]({{base}}/docs/tech-stack/)</Card>
+  <Card title="Development and testing" icon="setting">Set up a dev environment and run the tests. [Development]({{base}}/docs/development/) · [Testing]({{base}}/docs/testing/)</Card>
+  <Card title="Decisions (ADR)" icon="document">Why things are the way they are. [ADRs]({{base}}/docs/adr/)</Card>
+</CardGrid>
+
+## Need help?
+
+Questions and ideas go to [GitHub Discussions](https://github.com/julianstricker/JuStAI5/discussions), bugs and feature requests to [GitHub Issues](https://github.com/julianstricker/JuStAI5/issues).

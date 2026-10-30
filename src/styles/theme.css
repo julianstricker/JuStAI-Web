@@ -14,3 +14,6 @@
 /* match the landing page palette */
 :root { --sl-color-bg: #0e0d24; --sl-color-bg-nav: #0e0d24; --sl-color-bg-sidebar: #0e0d24; --sl-color-hairline: #ffffff1a; }
 :root[data-theme='light'] { --sl-color-bg: #faf8ff; --sl-color-bg-nav: #faf8ff; --sl-color-bg-sidebar: #faf8ff; --sl-color-hairline: #17143a1a; }
+
+/* diagrams in the docs */
+.sl-markdown-content img[src$='.svg'] { display: block; width: 100%; height: auto; border-radius: 18px; margin: 1.5rem 0; box-shadow: 0 10px 40px #0004; }
