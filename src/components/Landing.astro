@@ -48,9 +48,10 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
         <p class="tiny">{t.hero.req}</p>
       </div>
       <div class="hero-art">
-        <div class="bubble b1">{t.hero.say1}</div>
+        <div class="bubble b1" id="say" aria-live="polite">{t.hero.convos[0].q}</div>
         <Mascot variant={mascot} size={300} mood="listening" />
-        <div class="bubble b2">{t.hero.say2}</div>
+        <div class="bubble b2" id="reply">{t.hero.convos[0].a}</div>
+        <script type="application/json" id="convos" set:html={JSON.stringify(t.hero.convos)} />
       </div>
     </section>
 
@@ -158,6 +159,26 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
       tabs.forEach(function (x) { x.classList.toggle('on', x === tb); });
       document.querySelectorAll('[data-panel]').forEach(function (p) { p.hidden = p.dataset.panel !== tb.dataset.tab; });
     }); });
+    (function () {
+      var data; try { data = JSON.parse(document.getElementById('convos').textContent); } catch (e) { return; }
+      var q = document.getElementById('say'), a = document.getElementById('reply'), i = 0, timers = [];
+      if (!q || !a || data.length < 2 || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var later = function (fn, ms) { timers.push(setTimeout(fn, ms)); };
+      function show(n) {
+        q.classList.add('out'); a.classList.add('out');
+        later(function () {
+          q.textContent = data[n].q; a.innerHTML = '<i></i><i></i><i></i>'; a.classList.add('typing');
+          q.classList.remove('out'); a.classList.remove('out');
+          later(function () { a.classList.add('out'); }, 1500);
+          later(function () { a.classList.remove('typing'); a.textContent = data[n].a; a.classList.remove('out'); }, 1850);
+        }, 400);
+      }
+      function tick() { i = (i + 1) % data.length; show(i); }
+      var iv = setInterval(tick, 7500);
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) { clearInterval(iv); } else { iv = setInterval(tick, 7500); }
+      });
+    })();
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.01, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.sec, .card, .chat').forEach(function (n) { n.classList.add('reveal'); io.observe(n); });
   </script>
@@ -184,6 +205,9 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
   .tiny { font-size:.85rem; color:var(--mut); }
   .hero-art { position:relative; display:flex; justify-content:center; padding:40px 0; } .hero-art svg { filter:drop-shadow(0 20px 40px #5b3df566); }
   .bubble { position:absolute; background:var(--card); border:1px solid var(--line); padding:10px 14px; border-radius:18px; font-size:.9rem; max-width:210px; box-shadow:0 10px 30px #0004; animation:float 6s ease-in-out infinite; }
+  .bubble { transition: opacity .35s; } .bubble.out { opacity:0; }
+  .bubble.typing { display:flex; gap:5px; align-items:center; min-height:2.6em; } .bubble.typing i { width:7px; height:7px; border-radius:50%; background:currentColor; opacity:.6; animation:dot 1s infinite; } .bubble.typing i:nth-child(2) { animation-delay:.15s; } .bubble.typing i:nth-child(3) { animation-delay:.3s; }
+  @keyframes dot { 50% { transform:translateY(-4px); opacity:1; } }
   .b1 { top:0; left:-10px; border-bottom-left-radius:4px; } .b2 { bottom:0; right:-10px; border-bottom-right-radius:4px; animation-delay:-3s; background:linear-gradient(135deg,#6f4fff,#4a35d6); color:#fff; border:0; }
   @keyframes float { 50% { transform:translateY(-8px) } }
   .strip { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding-top:0; padding-bottom:0; } .strip div { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:16px; display:flex; flex-direction:column; } .strip b { color:var(--mint); font-size:1.15rem; } .strip span { color:var(--mut); font-size:.9rem; }
@@ -204,6 +228,6 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
   .cta-end { text-align:center; display:flex; flex-direction:column; align-items:center; } .cta-end .cta { justify-content:center; }
   footer { border-top:1px solid var(--line); padding:24px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; color:var(--mut); font-size:.9rem; max-width:1120px; margin:0 auto; }
   .reveal { opacity:0; transform:translateY(18px); transition:opacity .6s, transform .6s; } .reveal.in { opacity:1; transform:none; }
-  @media (max-width:860px) { .hero { grid-template-columns:1fr; } .hero-art { order:-1; padding:20px 0; } .hero-art svg { width:220px; height:220px; } .bubble { display:none; } .strip { grid-template-columns:1fr 1fr; } .steps { grid-template-columns:1fr; } .privacy-box { grid-template-columns:1fr; padding:24px; } }
+  @media (max-width:860px) { .hero { grid-template-columns:1fr; } .hero-art { order:-1; padding:20px 0; } .hero-art svg { width:220px; height:220px; } .hero-art { flex-direction:column; align-items:center; gap:10px; } .bubble { position:static; max-width:320px; min-height:3.4em; animation:none; } .b2 { min-height:4.2em; } .strip { grid-template-columns:1fr 1fr; } .steps { grid-template-columns:1fr; } .privacy-box { grid-template-columns:1fr; padding:24px; } }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } .bubble { animation:none; } html { scroll-behavior:auto; } }
 </style>
