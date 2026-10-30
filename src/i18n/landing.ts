@@ -1,15 +1,15 @@
 // Copy for the landing page, English (main language) and German.
 export const copy = {
   en: {
-    title: 'JuStAI5 – turn a €20 camera into a smart assistant',
-    metaDesc: 'JuStAI5 turns inexpensive network cameras like the TP-Link Tapo C200 (often under €20) into AI assistants that listen, see, remember and talk back. One camera per room, all running on your own computer.',
+    title: 'JuStAI5 – turn cheap cameras into smart assistants',
+    metaDesc: 'JuStAI5 turns inexpensive network cameras into AI assistants that listen, see, remember and talk back. One camera per room, all running on your own computer.',
     copy: 'Copy',
     nav: { examples: 'What it can do', features: 'Features', install: 'Install', docs: 'Docs' },
     hero: {
       eyebrow: 'Cheap cameras · smart assistants · runs at home',
-      h1a: 'A €20 camera.', h1b: 'Now a smart assistant.',
-      lead: 'JuStAI5 turns inexpensive network cameras like the TP-Link Tapo C200 into AI assistants. They listen, see, remember and answer through their own speaker, in every room, all run by one program on your own computer.',
-      wake: '“Hey Justy” is just our example. You choose the wakeword: pick a built-in one or upload your own.', tag: '≈ €20', tagNote: 'Tapo camera, prices vary',
+      h1a: 'Turn cheap cameras', h1b: 'into smart assistants.',
+      lead: 'JuStAI5 turns inexpensive network cameras into AI assistants. They listen, see, remember and answer through their own speaker, in every room, all run by one program on your own computer.',
+      wake: '“Hey Justy” is just our example. You choose the wakeword: pick a built-in one or upload your own.',
       cta: 'Install in 5 minutes', docs: 'Read the docs',
       req: 'Needs a Linux PC (x86_64) in your home network. The installer takes care of Docker.',
       convos: [
@@ -23,7 +23,7 @@ export const copy = {
     },
     strip: [
       { k: 'Local', v: 'wake word, speech and vision run on your machine' },
-      { k: '≈ €20 per room', v: 'a Tapo camera has mic, speaker and eye in one' },
+      { k: 'Cheap hardware', v: 'a network camera has mic, speaker and eye in one' },
       { k: '3 languages', v: 'English, German and Italian' },
       { k: 'Open source', v: 'AGPL-3.0, plugins in Python' },
     ],
@@ -40,11 +40,10 @@ export const copy = {
       more: 'More examples',
     },
     cam: {
-      h: 'Turn cheap cameras into smart assistants',
-      sub: 'No smart speaker per room. A network camera already has everything a room needs, and costs about as much as a pizza.',
-      eq: [{ i: '📷', h: 'Cheap camera', p: 'Tapo C200 and similar, around €20' }, { i: '🧠', h: 'JuStAI5', p: 'Free and open source' }, { i: '🏠', h: 'Smart room', p: 'Hears you, sees, answers' }],
+      h: 'Everything a room needs, in one small camera',
+      sub: 'No smart speaker per room. A network camera already has the microphone, speaker and eye, and costs very little. A Tapo C200, for example, is often available for under €20.',
+      eq: [{ i: '📷', h: 'Cheap camera', p: 'e.g. TP-Link Tapo C200' }, { i: '🧠', h: 'JuStAI5', p: 'Free and open source' }, { i: '🏠', h: 'Smart room', p: 'Hears you, sees, answers' }],
       gives: [{ i: '🎤', h: 'Microphone', p: 'listens for “Hey Justy”' }, { i: '🔊', h: 'Speaker', p: 'answers in the same room' }, { i: '👁', h: 'Eye', p: 'people, pets and objects' }, { i: '🎯', h: 'Pan and tilt', p: 'follows you through the room' }, { i: '🔒', h: 'Privacy mode', p: 'switch off by voice' }],
-      calc: { h: 'What does my home cost?', rooms: 'Rooms with a camera', price: 'Price per camera (€)', total: 'Cameras in total', note: 'Plus a PC that runs all the time (an old mini PC is enough) and a language model: a free Google API key or a local one. Prices are examples and vary.' },
       tested: 'Tested with the TP-Link Tapo C200. Other ONVIF/RTSP cameras can be added; speaker output needs a camera with two-way audio.',
     },
     how: {
@@ -58,7 +57,7 @@ export const copy = {
     features: {
       h: 'Everything in one assistant',
       items: [
-        { i: '📷', h: 'Cheap cameras, smart results', p: 'A camera of around €20 delivers video, microphone and speaker. JuStAI5 adds the brain: understanding, answering and remembering.' },
+        { i: '📷', h: 'Cheap cameras, smart results', p: 'A cheap network camera delivers video, microphone and speaker. JuStAI5 adds the brain: understanding, answering and remembering.' },
         { i: '🏠', h: 'Rooms and endpoints', p: 'It knows where you are and answers in the same room. A deterministic output router keeps replies from wandering off.' },
         { i: '👀', h: 'Sees and recognises', p: 'People, pets and objects through your cameras, with privacy masks and per-room switches.' },
         { i: '🧠', h: 'Remembers', p: 'Facts, habits and “the next time you see me” reminders, stored on your own machine.' },
@@ -102,15 +101,15 @@ export const copy = {
     footer: { issues: 'Issues' },
   },
   de: {
-    title: 'JuStAI5 – mach aus einer 20-€-Kamera einen smarten Assistenten',
-    metaDesc: 'JuStAI5 macht aus günstigen Netzwerkkameras wie der TP-Link Tapo C200 (oft unter 20 €) KI-Assistenten, die zuhören, sehen, sich erinnern und antworten. Eine Kamera pro Raum, alles auf deinem eigenen Computer.',
+    title: 'JuStAI5 – mach günstige Kameras zu smarten Assistenten',
+    metaDesc: 'JuStAI5 macht aus günstigen Netzwerkkameras KI-Assistenten, die zuhören, sehen, sich erinnern und antworten. Eine Kamera pro Raum, alles auf deinem eigenen Computer.',
     copy: 'Kopieren',
     nav: { examples: 'Was er kann', features: 'Funktionen', install: 'Installieren', docs: 'Doku' },
     hero: {
       eyebrow: 'Günstige Kameras · smarte Assistenten · läuft zuhause',
-      h1a: 'Eine 20-€-Kamera.', h1b: 'Jetzt ein smarter Assistent.',
-      lead: 'JuStAI5 macht aus günstigen Netzwerkkameras wie der TP-Link Tapo C200 KI-Assistenten. Sie hören zu, sehen, erinnern sich und antworten über ihren eigenen Lautsprecher, in jedem Raum, gesteuert von einem Programm auf deinem eigenen Computer.',
-      wake: '„Hey Justy“ ist nur unser Beispiel. Das Wakeword bestimmst du selbst: ein mitgeliefertes wählen oder ein eigenes hochladen.', tag: '≈ 20 €', tagNote: 'Tapo-Kamera, Preise schwanken',
+      h1a: 'Mach günstige Kameras', h1b: 'zu smarten Assistenten.',
+      lead: 'JuStAI5 macht aus günstigen Netzwerkkameras KI-Assistenten. Sie hören zu, sehen, erinnern sich und antworten über ihren eigenen Lautsprecher, in jedem Raum, gesteuert von einem Programm auf deinem eigenen Computer.',
+      wake: '„Hey Justy“ ist nur unser Beispiel. Das Wakeword bestimmst du selbst: ein mitgeliefertes wählen oder ein eigenes hochladen.',
       cta: 'In 5 Minuten installieren', docs: 'Zur Doku',
       req: 'Braucht einen Linux-PC (x86_64) in deinem Heimnetz. Docker richtet der Installer ein.',
       convos: [
@@ -124,7 +123,7 @@ export const copy = {
     },
     strip: [
       { k: 'Lokal', v: 'Wakeword, Sprache und Bilderkennung laufen auf deinem Rechner' },
-      { k: '≈ 20 € pro Raum', v: 'eine Tapo-Kamera hat Mikro, Lautsprecher und Auge in einem' },
+      { k: 'Günstige Hardware', v: 'eine Netzwerkkamera hat Mikro, Lautsprecher und Auge in einem' },
       { k: '3 Sprachen', v: 'Deutsch, Englisch und Italienisch' },
       { k: 'Open Source', v: 'AGPL-3.0, Plugins in Python' },
     ],
@@ -141,11 +140,10 @@ export const copy = {
       more: 'Mehr Beispiele',
     },
     cam: {
-      h: 'Mach günstige Kameras zu smarten Assistenten',
-      sub: 'Kein Smart Speaker pro Raum. Eine Netzwerkkamera hat schon alles, was ein Raum braucht, und kostet ungefähr so viel wie eine Pizza.',
-      eq: [{ i: '📷', h: 'Günstige Kamera', p: 'Tapo C200 und ähnliche, um die 20 €' }, { i: '🧠', h: 'JuStAI5', p: 'Kostenlos und Open Source' }, { i: '🏠', h: 'Smarter Raum', p: 'Hört dich, sieht, antwortet' }],
+      h: 'Alles, was ein Raum braucht, in einer kleinen Kamera',
+      sub: 'Kein Smart Speaker pro Raum. Eine Netzwerkkamera hat schon Mikrofon, Lautsprecher und Auge und kostet sehr wenig. Eine Tapo C200 gibt es zum Beispiel oft für unter 20 €.',
+      eq: [{ i: '📷', h: 'Günstige Kamera', p: 'z. B. TP-Link Tapo C200' }, { i: '🧠', h: 'JuStAI5', p: 'Kostenlos und Open Source' }, { i: '🏠', h: 'Smarter Raum', p: 'Hört dich, sieht, antwortet' }],
       gives: [{ i: '🎤', h: 'Mikrofon', p: 'wartet auf „Hey Justy“' }, { i: '🔊', h: 'Lautsprecher', p: 'antwortet im selben Raum' }, { i: '👁', h: 'Auge', p: 'Personen, Haustiere, Objekte' }, { i: '🎯', h: 'Schwenken und Neigen', p: 'folgt dir durch den Raum' }, { i: '🔒', h: 'Privatmodus', p: 'per Sprache ausschalten' }],
-      calc: { h: 'Was kostet mein Zuhause?', rooms: 'Räume mit Kamera', price: 'Preis pro Kamera (€)', total: 'Kameras insgesamt', note: 'Dazu kommt ein PC, der dauerhaft läuft (ein alter Mini-PC reicht), und ein Sprachmodell: ein kostenloser Google-API-Key oder ein lokales. Preise sind Beispiele und schwanken.' },
       tested: 'Getestet mit der TP-Link Tapo C200. Andere ONVIF/RTSP-Kameras lassen sich hinzufügen; Sprachausgabe braucht eine Kamera mit Zwei-Wege-Audio.',
     },
     how: {
@@ -159,7 +157,7 @@ export const copy = {
     features: {
       h: 'Alles in einem Assistenten',
       items: [
-        { i: '📷', h: 'Günstige Kameras, smarte Ergebnisse', p: 'Eine Kamera für etwa 20 € liefert Bild, Mikrofon und Lautsprecher. JuStAI5 ergänzt das Gehirn: verstehen, antworten und erinnern.' },
+        { i: '📷', h: 'Günstige Kameras, smarte Ergebnisse', p: 'Eine günstige Netzwerkkamera liefert Bild, Mikrofon und Lautsprecher. JuStAI5 ergänzt das Gehirn: verstehen, antworten und erinnern.' },
         { i: '🏠', h: 'Räume und Endpunkte', p: 'Er weiß, wo du bist, und antwortet im selben Raum. Ein deterministischer Output Router sorgt dafür, dass Antworten nicht abwandern.' },
         { i: '👀', h: 'Sieht und erkennt', p: 'Personen, Haustiere und Objekte über deine Kameras, mit Privatzonen und Schaltern pro Raum.' },
         { i: '🧠', h: 'Erinnert sich', p: 'Fakten, Gewohnheiten und „wenn du mich das nächste Mal siehst“-Erinnerungen, gespeichert auf deinem Rechner.' },
