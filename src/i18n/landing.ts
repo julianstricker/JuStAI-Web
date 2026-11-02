@@ -1,14 +1,14 @@
 // Copy for the landing page, English (main language) and German.
 export const copy = {
   en: {
-    title: 'JuStAI5 – turn cheap cameras into smart assistants',
-    metaDesc: 'JuStAI5 turns inexpensive network cameras into AI assistants that listen, see, remember and talk back. One camera per room, all running on your own computer.',
+    title: 'JuStAI5 – the AI for your home',
+    metaDesc: 'JuStAI5 is a local AI assistant for your home. It runs on your NAS or PC and uses cheap network cameras as microphone, speaker and eyes: one assistant per room that listens, sees, remembers and talks back.',
     copy: 'Copy',
     nav: { examples: 'What it can do', features: 'Features', install: 'Install', docs: 'Docs' },
     hero: {
-      eyebrow: 'Cheap cameras · smart assistants · runs at home',
-      h1a: 'Turn cheap cameras', h1b: 'into smart assistants.',
-      lead: 'JuStAI5 turns inexpensive network cameras into AI assistants. They listen, see, remember and answer through their own speaker, in every room, all run by one program on your own computer.',
+      eyebrow: 'A local AI assistant · runs on your NAS or PC',
+      h1a: 'The AI for', h1b: 'your home.',
+      lead: 'JuStAI5 runs on your NAS or PC at home and turns cheap network cameras into microphone, speaker and eyes. Say the wakeword in any room: the assistant there listens, sees, remembers and answers through the camera’s speaker. It runs on your own hardware, not with a provider.',
       wake: '“Hey Justy” is just our example. You choose the wakeword: pick a built-in one or upload your own.',
       cta: 'Install in 5 minutes', docs: 'Read the docs',
       req: 'Needs a Linux PC (x86_64) in your home network. The installer takes care of Docker.',
@@ -119,14 +119,14 @@ export const copy = {
     footer: { issues: 'Issues' },
   },
   de: {
-    title: 'JuStAI5 – mach günstige Kameras zu smarten Assistenten',
-    metaDesc: 'JuStAI5 macht aus günstigen Netzwerkkameras KI-Assistenten, die zuhören, sehen, sich erinnern und antworten. Eine Kamera pro Raum, alles auf deinem eigenen Computer.',
+    title: 'JuStAI5 – die KI für dein Zuhause',
+    metaDesc: 'JuStAI5 ist ein lokaler KI-Assistent für dein Zuhause. Er läuft auf deinem NAS oder PC und nutzt günstige Netzwerkkameras als Mikrofon, Lautsprecher und Augen: ein Assistent pro Raum, der zuhört, sieht, sich erinnert und antwortet.',
     copy: 'Kopieren',
     nav: { examples: 'Was er kann', features: 'Funktionen', install: 'Installieren', docs: 'Doku' },
     hero: {
-      eyebrow: 'Günstige Kameras · smarte Assistenten · läuft zuhause',
-      h1a: 'Mach günstige Kameras', h1b: 'zu smarten Assistenten.',
-      lead: 'JuStAI5 macht aus günstigen Netzwerkkameras KI-Assistenten. Sie hören zu, sehen, erinnern sich und antworten über ihren eigenen Lautsprecher, in jedem Raum, gesteuert von einem Programm auf deinem eigenen Computer.',
+      eyebrow: 'Ein lokaler KI-Assistent · läuft auf deinem NAS oder PC',
+      h1a: 'Die KI für', h1b: 'dein Zuhause.',
+      lead: 'JuStAI5 läuft auf deinem NAS oder PC zuhause und macht günstige Netzwerkkameras zu Mikrofon, Lautsprecher und Augen. Sag in einem Raum das Wakeword: Der Assistent dort hört zu, sieht, erinnert sich und antwortet über den Lautsprecher der Kamera. Er läuft auf deiner eigenen Hardware, nicht bei einem Anbieter.',
       wake: '„Hey Justy“ ist nur unser Beispiel. Das Wakeword bestimmst du selbst: ein mitgeliefertes wählen oder ein eigenes hochladen.',
       cta: 'In 5 Minuten installieren', docs: 'Zur Doku',
       req: 'Braucht einen Linux-PC (x86_64) in deinem Heimnetz. Docker richtet der Installer ein.',
