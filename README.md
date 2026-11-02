@@ -16,3 +16,7 @@ npm run build                         # without JUSTAI_SRC the docs are cloned f
 
 Deployment: GitHub Actions builds and publishes to GitHub Pages on every push and nightly
 (Settings → Pages → Source: *GitHub Actions*).
+
+## Single source of truth
+
+Texts **and images** of the documentation live only in the JuStAI5 repo (`README.md`, `docs/**`, `docs/img/**`) and render on GitHub as well as on this site. `npm run sync-docs` copies them here (generated, git-ignored). Diagrams are generated there with `node scripts/make-doc-diagrams.mjs`. Only presentation lives in this repo: navigation (`astro.config.mjs`), the docs home (`src/hub/`) and styling.

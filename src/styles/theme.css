@@ -18,4 +18,4 @@
 /* diagrams in the docs */
 .sl-markdown-content img[src*='/img/docs/'] { display: block; width: 100%; height: auto; border-radius: 18px; margin: 1.5rem 0; box-shadow: 0 10px 40px #0004; }
 
-.sl-markdown-content img[src$='.png'] { border: 1px solid var(--sl-color-hairline); }
+.sl-markdown-content img[src$='.webp'] { border: 1px solid var(--sl-color-hairline); }

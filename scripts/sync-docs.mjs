@@ -3,7 +3,7 @@
 //   German:  <repo>/docs/de/*.md               -> src/content/docs/de/docs/
 // Source: JUSTAI_SRC (local checkout) or a shallow clone of the GitHub repo into .cache/.
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { base, repo } from '../site.config.mjs';
@@ -21,6 +21,9 @@ if (!src) {
 }
 
 const out = path.join(root, 'src/content/docs');
+// Images (diagrams, screenshots) are part of the docs in the JuStAI5 repo: docs/img -> public/img/docs
+rmSync(path.join(root, 'public/img/docs'), { recursive: true, force: true });
+cpSync(path.join(src, 'docs/img'), path.join(root, 'public/img/docs'), { recursive: true });
 rmSync(path.join(out, 'docs'), { recursive: true, force: true });
 rmSync(path.join(out, 'de'), { recursive: true, force: true });
 
@@ -56,6 +59,8 @@ function rewriteLinks(text, fromRel) {
       const readme = path.join(abs, 'README.md');
       if (existsSync(readme)) target = path.posix.join(target, 'README.md');
     }
+    // images live next to the docs (docs/img) and are copied to public/img/docs below
+    if (target.startsWith('docs/img/')) return `](${base}/img/docs/${target.slice('docs/img/'.length)})`;
     if (isDoc(target)) {
       // German pages prefer the German twin of an English doc
       if (fromLang === 'de' && /^docs\/[^/]+\.md$/.test(target)) {
@@ -70,40 +75,6 @@ function rewriteLinks(text, fromRel) {
 }
 const readdirSyncSafe = (p) => { try { return readdirSync(p).length >= 0; } catch { return false; } };
 
-// Diagrams (public/img/docs/<name>.<lang>.svg, made by make-diagrams.mjs) shown after the intro of a page.
-const fig = (name, en, de) => ({ name, alt: { en, de } });
-const figures = {
-  overview: [
-    fig('how.#.svg', 'How JuStAI5 works: devices in every room, your server at home, an AI model, answers back in the same room', 'So funktioniert JuStAI5: Geräte in jedem Raum, dein Server zu Hause, ein KI-Modell, Antworten im selben Raum'),
-    fig('shots/dashboard.#.png', 'The JuStAI5 dashboard (demo data)', 'Das JuStAI5-Dashboard (Demo-Daten)'),
-  ],
-  installation: [fig('inst.#.svg', 'Installation in four steps', 'Installation in vier Schritten')],
-  rooms: [
-    fig('rooms.#.svg', 'A room contains devices; an interaction endpoint combines them; room policies decide what is allowed', 'Ein Raum enthält Geräte; ein Interaction Endpoint kombiniert sie; Raum-Richtlinien bestimmen, was erlaubt ist'),
-    fig('shots/rooms.#.png', 'The Rooms page with devices and interaction endpoints (demo data)', 'Die Seite Räume mit Geräten und Interaction Endpoints (Demo-Daten)'),
-  ],
-  devices: [fig('shots/devices.#.png', 'The Devices page (demo data with simulated devices)', 'Die Seite Geräte (Demo-Daten mit simulierten Geräten)')],
-  audio: [
-    fig('pipe.#.svg', 'From a spoken sentence to the answer', 'Vom gesprochenen Satz zur Antwort'),
-    fig('shots/audio.#.png', 'Live audio diagnostics per room (demo data)', 'Live-Audiodiagnose pro Raum (Demo-Daten)'),
-  ],
-  vision: [fig('shots/people.#.png', 'People and pets (demo data)', 'Personen und Haustiere (Demo-Daten)')],
-  memory: [fig('shots/memory.#.png', 'The Memory page (demo data)', 'Die Seite Gedächtnis (Demo-Daten)')],
-  automations: [fig('shots/automations.#.png', 'The Automations page (demo data)', 'Die Seite Automationen (Demo-Daten)')],
-  security: [fig('priv.#.svg', 'What stays on your server and what may go to a cloud AI', 'Was auf deinem Server bleibt und was an eine Cloud-KI gehen darf')],
-  architecture: [fig('arch.#.svg', 'Docker containers and networks', 'Docker-Container und Netzwerke')],
-  'vibe-coding': [fig('vibe.#.svg', 'Three ways to build JuStAI5 further', 'Drei Wege, JuStAI5 weiterzubauen')],
-};
-function addFigure(text, { lang, slug }) {
-  const list = figures[slug];
-  if (!list) return text;
-  const imgs = list.map((f) => `![${f.alt[lang]}](${base}/img/docs/${f.name.replace('#', lang)})`).join('\n\n');
-  const block = `\n\n${imgs}\n\n`;
-  const m = text.match(/^\s*\n?([^\n#|`>*\-][^\n]*\n)+/); // first plain paragraph
-  if (!m) return block.trimStart() + text;
-  return text.slice(0, m[0].length) + block + text.slice(m[0].length);
-}
-
 function convert(rel) {
   let text = readFileSync(path.join(src, rel), 'utf8');
   const { lang } = slugOf(rel);
@@ -113,7 +84,6 @@ function convert(rel) {
   // drop the "Deutsch · English" switcher line, Starlight has its own language picker
   text = text.replace(/^\*(\[[^\]]+\]\([^)]*\)|Deutsch|English)( · | ?· ?)(\[[^\]]+\]\([^)]*\)|Deutsch|English)\*\s*\n/m, '');
   text = rewriteLinks(text, rel);
-  text = addFigure(text, slugOf(rel));
   // Starlight renders the title itself; keep ASCII diagrams intact (code fences untouched).
   const { slug } = slugOf(rel);
   const dir = path.join(out, lang === 'de' ? 'de' : '', 'docs');
