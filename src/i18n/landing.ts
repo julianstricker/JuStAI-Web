@@ -4,6 +4,7 @@ export const copy = {
     title: 'JuStAI5 – the AI for your home',
     metaDesc: 'JuStAI5 is a local AI assistant for your home. It runs on your NAS or PC and uses cheap network cameras as microphone, speaker and eyes: one assistant per room that listens, sees, remembers and talks back.',
     copy: 'Copy',
+    video: { h: 'See it in action', sub: 'A short introduction, less than a minute.', unmute: '🔊 Click for sound', mute: '🔇 Sound off', label: 'Introduction video' },
     nav: { examples: 'What it can do', features: 'Features', install: 'Install', docs: 'Docs' },
     hero: {
       eyebrow: 'A local AI assistant · runs on your NAS or PC',
@@ -122,6 +123,7 @@ export const copy = {
     title: 'JuStAI5 – die KI für dein Zuhause',
     metaDesc: 'JuStAI5 ist ein lokaler KI-Assistent für dein Zuhause. Er läuft auf deinem NAS oder PC und nutzt günstige Netzwerkkameras als Mikrofon, Lautsprecher und Augen: ein Assistent pro Raum, der zuhört, sieht, sich erinnert und antwortet.',
     copy: 'Kopieren',
+    video: { h: 'Sieh es in Aktion', sub: 'Eine kurze Einführung, weniger als eine Minute.', unmute: '🔊 Klicken für Ton', mute: '🔇 Ton aus', label: 'Einführungsvideo' },
     nav: { examples: 'Was er kann', features: 'Funktionen', install: 'Installieren', docs: 'Doku' },
     hero: {
       eyebrow: 'Ein lokaler KI-Assistent · läuft auf deinem NAS oder PC',
