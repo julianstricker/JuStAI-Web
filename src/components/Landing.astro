@@ -66,6 +66,7 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
         </video>
         <button type="button" class="vsound" id="vsound">{t.video.unmute}</button>
       </div>
+      <p class="vnote">{t.video.note}</p>
     </section>
 
     <section class="strip">
@@ -292,6 +293,7 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
   .vid { text-align:center; }
   .vwrap { position:relative; max-width:960px; margin:1.5rem auto 0; border-radius:20px; overflow:hidden; border:1px solid var(--line); box-shadow:0 20px 60px #0005; background:#000; }
   .vwrap video { display:block; width:100%; height:auto; aspect-ratio:16/9; cursor:pointer; }
+  .vnote { max-width:960px; margin:.8rem auto 0; font-size:.85rem; color:var(--mut); }
   .vsound { position:absolute; right:14px; bottom:14px; border:0; border-radius:99px; padding:8px 16px; font:inherit; font-weight:700; font-size:.9rem; color:#fff; background:#000a; backdrop-filter:blur(6px); cursor:pointer; }
   .vsound:hover { background:#000d; }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } .bubble { animation:none; } html { scroll-behavior:auto; } }
