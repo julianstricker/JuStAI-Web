@@ -4,7 +4,7 @@ Website and documentation for [JuStAI5](https://github.com/julianstricker/JuStAI
 English is the main language, German lives under `/de/`.
 
 * **Landing page:** `src/components/Landing.astro`, texts in `src/i18n/landing.ts` (EN + DE)
-* **Mascot:** `src/components/Mascot.astro` (variants `robot`, `house`, `owl`; compare at `/mascots/`)
+* **Mascot:** `src/components/Mascot.astro`
 * **Docs:** not stored here. `scripts/sync-docs.mjs` copies `README.md` and `docs/**` from the JuStAI5 repo on every build (English at `/docs/…`, German from `docs/de` at `/de/docs/…`) and rewrites the links. Edit the docs in the JuStAI5 repo.
 * **Settings:** `site.config.mjs` (URL, base path, install command). For a custom domain set `base` to `''`.
 

@@ -10,7 +10,7 @@ export const copy = {
       eyebrow: 'A local AI assistant · runs on your NAS or PC',
       h1a: 'The AI for', h1b: 'your home.',
       lead: 'JuStAI5 runs on your NAS or PC at home and turns cheap network cameras into microphone, speaker and eyes. Say the wakeword in any room: the assistant there listens, sees, remembers and answers through the camera’s speaker. It runs on your own hardware, not with a provider.',
-      wake: '“Hey Justy” is just our example. You choose the wakeword: pick a built-in one or upload your own.',
+      wake: '“Hey Justy” is the built-in wakeword. You can pick another built-in one or upload your own.',
       cta: 'Install in 5 minutes', docs: 'Read the docs',
       req: 'Needs a Linux PC (x86_64) in your home network. The installer takes care of Docker.',
       convos: [
@@ -129,7 +129,7 @@ export const copy = {
       eyebrow: 'Ein lokaler KI-Assistent · läuft auf deinem NAS oder PC',
       h1a: 'Die KI für', h1b: 'dein Zuhause.',
       lead: 'JuStAI5 läuft auf deinem NAS oder PC zuhause und macht günstige Netzwerkkameras zu Mikrofon, Lautsprecher und Augen. Sag in einem Raum das Wakeword: Der Assistent dort hört zu, sieht, erinnert sich und antwortet über den Lautsprecher der Kamera. Er läuft auf deiner eigenen Hardware, nicht bei einem Anbieter.',
-      wake: '„Hey Justy“ ist nur unser Beispiel. Das Wakeword bestimmst du selbst: ein mitgeliefertes wählen oder ein eigenes hochladen.',
+      wake: '„Hey Justy“ ist das mitgelieferte Wakeword. Du kannst ein anderes mitgeliefertes wählen oder ein eigenes hochladen.',
       cta: 'In 5 Minuten installieren', docs: 'Zur Doku',
       req: 'Braucht einen Linux-PC (x86_64) in deinem Heimnetz. Docker richtet der Installer ein.',
       convos: [
