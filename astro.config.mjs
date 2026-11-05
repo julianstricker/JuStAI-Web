@@ -15,7 +15,7 @@ export default defineConfig({
       locales: { root: { label: 'English', lang: 'en' }, de: { label: 'Deutsch', lang: 'de' } },
       social: [{ icon: 'github', label: 'GitHub', href: `https://github.com/${repo}` }],
       customCss: ['./src/styles/theme.css'],
-      components: { Head: './src/components/Head.astro', Header: './src/components/Header.astro', Sidebar: './src/components/Sidebar.astro' },
+      components: { Head: './src/components/Head.astro', Header: './src/components/Header.astro', Sidebar: './src/components/Sidebar.astro', Footer: './src/components/Footer.astro' },
       sidebar: [
         { slug: 'docs', label: 'Docs home', translations: { de: 'Doku-Start' } },
         { label: '1 · Start here', translations: { de: '1 · Loslegen' }, items: [

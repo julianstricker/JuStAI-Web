@@ -4,14 +4,14 @@ import Mascot from './Mascot.astro';
 import { repo } from '../../site.config.mjs';
 import { copy } from '../i18n/landing';
 
-interface Props { lang?: 'en' | 'de'; docs?: boolean }
-const { lang = 'en', docs = false } = Astro.props;
+interface Props { lang?: 'en' | 'de'; docs?: boolean; altHref?: string }
+const { lang = 'en', docs = false, altHref } = Astro.props;
 const t = copy[lang].nav;
 const b = import.meta.env.BASE_URL.replace(/\/$/, '');
 const pre = lang === 'de' ? `${b}/de` : b;
 // the same page in the other language (landing or docs)
 const path = Astro.url.pathname;
-const other = lang === 'de' ? path.replace(`${b}/de`, b || '/') : path.replace(b, `${b}/de`);
+const other = altHref ?? (lang === 'de' ? path.replace(`${b}/de`, b || '/') : path.replace(b, `${b}/de`));
 const home = lang === 'de' ? `${b}/de/` : `${b}/`;
 ---
 <header class={docs ? 'nav docs' : 'nav'}>

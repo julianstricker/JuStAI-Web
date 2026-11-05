@@ -2,6 +2,7 @@
 import Mascot from './Mascot.astro';
 import SiteNav from './SiteNav.astro';
 import Analytics from './Analytics.astro';
+import { legalLinks } from '../i18n/legal';
 import { installCommand, repo } from '../../site.config.mjs';
 import { copy } from '../i18n/landing';
 
@@ -11,6 +12,7 @@ const t = copy[lang];
 const b = import.meta.env.BASE_URL.replace(/\/$/, '');
 const pre = lang === 'de' ? `${b}/de` : b;
 const docs = (p: string) => `${pre}/docs/${p}/`;
+const legal = legalLinks(b, lang);
 const other = lang === 'de' ? `${b}/` : `${b}/de/`;
 ---
 <!doctype html>
@@ -178,7 +180,7 @@ const other = lang === 'de' ? `${b}/` : `${b}/de/`;
 
   <footer>
     <span>© 2026 Julian Stricker · AGPL-3.0</span>
-    <span><a href={docs('overview')}>{t.nav.docs}</a> · <a href={`https://github.com/${repo}`}>GitHub</a> · <a href={`https://github.com/${repo}/issues`}>{t.footer.issues}</a> · <a href={`https://github.com/${repo}/discussions`}>Discussions</a></span>
+    <span><a href={docs('overview')}>{t.nav.docs}</a> · <a href={`https://github.com/${repo}`}>GitHub</a> · <a href={`https://github.com/${repo}/issues`}>{t.footer.issues}</a> · <a href={`https://github.com/${repo}/discussions`}>Discussions</a> · <a href={legal.notice.href}>{legal.notice.label}</a> · <a href={legal.privacy.href}>{legal.privacy.label}</a></span>
   </footer>
 
   <script is:inline>

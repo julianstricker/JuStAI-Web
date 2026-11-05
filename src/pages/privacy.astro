@@ -1,0 +1,32 @@
+---
+import LegalPage from '../layouts/LegalPage.astro';
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<LegalPage lang="en" title="Privacy" altHref={`${b}/de/datenschutz/`}>
+  <h1>Privacy policy</h1>
+  <p class="stand">As of November 2026</p>
+
+  <h2>Controller</h2>
+  <p>Julian Stricker, e-mail: <a href="mailto:info@naxeu.com">info@naxeu.com</a>. Questions about your data and requests under the rights below go to this address.</p>
+
+  <h2>In short</h2>
+  <p>This website sets no cookies, has no accounts and no forms, and loads no fonts, scripts or videos from third parties. Visits are counted with a cookie-free statistics tool that I run myself.</p>
+
+  <h2>Hosting (GitHub Pages)</h2>
+  <p>The website is hosted by GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA; for the EU, Microsoft Ireland Operations Limited). When you open a page, GitHub processes technical data in server logs: your IP address, date and time, the requested page and browser information. This is needed to deliver the website. The legal basis is my legitimate interest in running the website (Art. 6(1)(f) GDPR). According to GitHub, transfers to the USA rely on the EU-US Data Privacy Framework and standard contractual clauses. More: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>.</p>
+
+  <h2>Visitor statistics (Plausible)</h2>
+  <p>I count visits with <a href="https://plausible.io" rel="noopener">Plausible</a> (Community Edition), which I run on my own server at Hetzner Online GmbH in Germany. Plausible uses no cookies and stores no personal data permanently. It records the visited page, the referring website, browser, operating system, device type and country. Your IP address is not stored; it is only used briefly to form a short-lived, irreversible value that is renewed daily, so that visitors can be counted without recognising them across days or websites. Data is not passed on to third parties. The legal basis is my legitimate interest in understanding how the website is used and improving it (Art. 6(1)(f) GDPR). Since nothing is stored on or read from your device, no consent is required for this. You can object at any time (Art. 21 GDPR) by e-mail.</p>
+
+  <h2>Local storage in your browser</h2>
+  <p>If you switch between light and dark mode, your choice is stored in your browser (local storage) so that it is remembered. It stays on your device and is not sent to me.</p>
+
+  <h2>Videos and links</h2>
+  <p>The video on the start page is hosted on this website itself; no data goes to video platforms. Links to other websites (for example GitHub) lead to services with their own privacy policies.</p>
+
+  <h2>Your rights</h2>
+  <p>You have the right of access, rectification, erasure, restriction of processing, data portability and objection (Art. 15 to 21 GDPR). Contact: <a href="mailto:info@naxeu.com">info@naxeu.com</a>.</p>
+
+  <h2>Complaints</h2>
+  <p>You can lodge a complaint with a supervisory authority. In Italy this is the <a href="https://www.garanteprivacy.it" rel="noopener">Garante per la protezione dei dati personali</a>, Piazza Venezia 11, 00187 Roma. You can also contact the authority in your own country.</p>
+</LegalPage>

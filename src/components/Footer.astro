@@ -1,0 +1,13 @@
+---
+// Starlight footer plus the legal links.
+import Default from '@astrojs/starlight/components/Footer.astro';
+import { legalLinks } from '../i18n/legal';
+const lang = Astro.locals.starlightRoute.locale === 'de' ? 'de' : 'en';
+const links = legalLinks(import.meta.env.BASE_URL.replace(/\/$/, ''), lang);
+---
+<Default {...Astro.props}><slot /></Default>
+<p class="legal-links"><a href={links.notice.href}>{links.notice.label}</a> · <a href={links.privacy.href}>{links.privacy.label}</a></p>
+<style is:global>
+  .legal-links { margin-top: 1.5rem; font-size: var(--sl-text-sm); color: var(--sl-color-gray-3); }
+  .legal-links a { color: var(--sl-color-gray-3); }
+</style>

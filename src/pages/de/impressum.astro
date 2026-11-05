@@ -1,0 +1,26 @@
+---
+import LegalPage from '../../layouts/LegalPage.astro';
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<LegalPage lang="de" title="Impressum" altHref={`${b}/legal/`}>
+  <h1>Impressum</h1>
+
+  <h2>Anbieter dieser Website</h2>
+  <p>Julian Stricker<br />E-Mail: <a href="mailto:info@naxeu.com">info@naxeu.com</a></p>
+  <p>JuStAI5 ist ein privates, nicht kommerzielles Open-Source-Projekt. Diese Website zeigt keine Werbung und bietet keine entgeltlichen Leistungen an. Für den Inhalt verantwortlich ist Julian Stricker.</p>
+
+  <h2>Software und Lizenz</h2>
+  <p>Die Software JuStAI5 ist freie Software unter der <a href="https://www.gnu.org/licenses/agpl-3.0.html" rel="noopener">GNU AGPL-3.0</a>. Der Quellcode liegt auf <a href="https://github.com/julianstricker/JuStAI5" rel="noopener">GitHub</a>. Sie wird, wie in der Lizenz festgelegt, ohne Gewährleistung bereitgestellt.</p>
+
+  <h2>Einsatz der Software</h2>
+  <p>JuStAI5 arbeitet mit Kameras, Mikrofonen und, wenn du es einschaltest, mit Gesichts- und Stimmerkennung. Wer die Software installiert und betreibt, ist selbst für den rechtmäßigen Einsatz verantwortlich: etwa Haushaltsmitglieder und Gäste zu informieren, wo nötig Einwilligungen einzuholen und keine Nachbarn oder öffentlichen Räume aufzuzeichnen.</p>
+
+  <h2>KI-generierte Inhalte</h2>
+  <p>Szenen und Sprecherstimme im Einführungsvideo auf der Startseite sind KI-generiert. Die gezeigte Oberfläche und die Funktionen von JuStAI5 sind real.</p>
+
+  <h2>Marken</h2>
+  <p>Alle genannten Produkt- und Firmennamen (zum Beispiel TP-Link, Tapo, Google, Gemini, Alexa) sind Marken ihrer jeweiligen Inhaber. JuStAI5 steht in keiner Verbindung zu diesen Unternehmen und wird von ihnen weder unterstützt noch gesponsert.</p>
+
+  <h2>Links auf andere Websites</h2>
+  <p>Diese Website verlinkt auf externe Websites. Auf deren Inhalte habe ich keinen Einfluss und bin dafür nicht verantwortlich.</p>
+</LegalPage>

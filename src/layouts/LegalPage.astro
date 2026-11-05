@@ -1,0 +1,42 @@
+---
+// Plain text page (legal notice, privacy) with the shared navigation.
+import SiteNav from '../components/SiteNav.astro';
+import Analytics from '../components/Analytics.astro';
+import { legalLinks } from '../i18n/legal';
+
+interface Props { lang: 'en' | 'de'; title: string; altHref: string }
+const { lang, title, altHref } = Astro.props;
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
+const links = legalLinks(b, lang);
+---
+<!doctype html>
+<html lang={lang} data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{title} | JuStAI5</title>
+  <link rel="icon" href={`${b}/favicon.svg`} type="image/svg+xml" />
+  <script is:inline>
+    try { const s = localStorage.getItem('starlight-theme'); if (s === 'light' || s === 'dark') document.documentElement.dataset.theme = s;
+      else if (matchMedia('(prefers-color-scheme: light)').matches) document.documentElement.dataset.theme = 'light'; } catch {}
+  </script>
+  <Analytics />
+</head>
+<body>
+  <SiteNav lang={lang} altHref={altHref} />
+  <main class="legal">
+    <slot />
+  </main>
+  <footer class="legal-foot"><a href={links.notice.href}>{links.notice.label}</a> · <a href={links.privacy.href}>{links.privacy.label}</a></footer>
+</body>
+</html>
+<style is:global>
+  body { margin:0; background:var(--bg); color:var(--fg); font-family: ui-rounded, 'SF Pro Rounded', Nunito, system-ui, -apple-system, 'Segoe UI', sans-serif; line-height:1.65; }
+  .legal { max-width:760px; margin:0 auto; padding:40px 20px 24px; }
+  .legal h1 { font-size:2rem; margin:0 0 .4em; }
+  .legal h2 { font-size:1.25rem; margin:2em 0 .4em; }
+  .legal a { color:var(--mint); }
+  .legal .stand { color:var(--mut); font-size:.9rem; }
+  .legal-foot { max-width:760px; margin:0 auto; padding:24px 20px 48px; color:var(--mut); font-size:.9rem; border-top:1px solid var(--line); }
+  .legal-foot a { color:var(--mut); }
+</style>
