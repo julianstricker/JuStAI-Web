@@ -21,7 +21,7 @@ for (const lang of ['en', 'de']) {
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#glow)"/>
   <g font-family="Noto Sans, DejaVu Sans, sans-serif" font-weight="700">
-    <text x="80" y="110" font-size="34" fill="#f4f1ff">JuStAI<tspan fill="#3ee8b5">5</tspan></text>
+    <text x="80" y="110" font-size="34" fill="#f4f1ff">JuStAI</text>
     <text x="80" y="285" font-size="78" fill="#f4f1ff">${esc(h.h1a)}</text>
     <text x="80" y="378" font-size="78" fill="url(#grad)">${esc(h.h1b)}</text>
     <text x="80" y="470" font-size="30" font-weight="400" fill="#b4b0d6">${esc(lang === 'de' ? 'Läuft auf deinem NAS oder PC.' : 'Runs on your NAS or PC.')}</text>

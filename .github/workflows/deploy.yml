@@ -4,10 +4,10 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '17 4 * * *'      # pick up docs changes from the JuStAI5 repo every night
+    - cron: '17 4 * * *'      # pick up docs changes from the JuStAI repo every night
   workflow_dispatch:
   repository_dispatch:
-    types: [docs-updated]     # optional: trigger from the JuStAI5 repo after docs changes
+    types: [docs-updated]     # optional: trigger from the JuStAI repo after docs changes
 
 permissions:
   contents: read
@@ -28,7 +28,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build       # syncs docs from julianstricker/JuStAI5, then builds
+      - run: npm run build       # syncs docs from naxeu/justai, then builds
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

@@ -7,9 +7,9 @@ export default defineConfig({
   base,
   integrations: [
     starlight({
-      title: 'JuStAI5',
+      title: 'JuStAI',
       description: 'A local AI assistant for every room of your home.',
-      logo: { src: './src/assets/logo.svg', alt: 'JuStAI5' },
+      logo: { src: './src/assets/logo.svg', alt: 'JuStAI' },
       favicon: '/favicon.svg',
       defaultLocale: 'root',
       locales: { root: { label: 'English', lang: 'en' }, de: { label: 'Deutsch', lang: 'de' } },
@@ -19,7 +19,7 @@ export default defineConfig({
       sidebar: [
         { slug: 'docs', label: 'Docs home', translations: { de: 'Doku-Start' } },
         { label: '1 · Start here', translations: { de: '1 · Loslegen' }, items: [
-          { slug: 'docs/overview', label: 'What is JuStAI5?', translations: { de: 'Was ist JuStAI5?' } },
+          { slug: 'docs/overview', label: 'What is JuStAI?', translations: { de: 'Was ist JuStAI?' } },
           { slug: 'docs/installation', label: 'Install', translations: { de: 'Installieren' } },
           { slug: 'docs/examples', label: 'Ideas: what to ask', translations: { de: 'Ideen: was fragen?' } } ] },
         { label: '2 · Set up your home', translations: { de: '2 · Zuhause einrichten' }, items: [

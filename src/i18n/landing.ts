@@ -1,15 +1,15 @@
 // Copy for the landing page, English (main language) and German.
 export const copy = {
   en: {
-    title: 'JuStAI5 – the AI for your home',
-    metaDesc: 'JuStAI5 is a local AI assistant for your home. It runs on your NAS or PC and uses cheap network cameras as microphone, speaker and eyes: one assistant per room that listens, sees, remembers and talks back.',
+    title: 'JuStAI – the AI for your home',
+    metaDesc: 'JuStAI is a local AI assistant for your home. It runs on your NAS or PC and uses cheap network cameras as microphone, speaker and eyes: one assistant per room that listens, sees, remembers and talks back.',
     copy: 'Copy',
-    video: { h: 'See it in action', sub: 'A short introduction, less than a minute.', unmute: '🔊 Click for sound', mute: '🔇 Sound off', label: 'Introduction video', note: 'Scenes and voice in this video are AI-generated. The JuStAI5 interface and features shown are real.' },
+    video: { h: 'See it in action', sub: 'A short introduction, less than a minute.', unmute: '🔊 Click for sound', mute: '🔇 Sound off', label: 'Introduction video', note: 'Scenes and voice in this video are AI-generated. The JuStAI interface and features shown are real.' },
     nav: { examples: 'What it can do', features: 'Features', install: 'Install', docs: 'Docs' },
     hero: {
       eyebrow: 'A local AI assistant · runs on your NAS or PC',
       h1a: 'The AI for', h1b: 'your home.',
-      lead: 'JuStAI5 runs on your NAS or PC at home and turns cheap network cameras into microphone, speaker and eyes. Say the wakeword in any room: the assistant there listens, sees, remembers and answers through the camera’s speaker. It runs on your own hardware, not with a provider.',
+      lead: 'JuStAI runs on your NAS or PC at home and turns cheap network cameras into microphone, speaker and eyes. Say the wakeword in any room: the assistant there listens, sees, remembers and answers through the camera’s speaker. It runs on your own hardware, not with a provider.',
       wake: '“Hey Justy” is the built-in wakeword. You can pick another built-in one or upload your own.',
       cta: 'Install in 5 minutes', docs: 'Read the docs',
       req: 'Needs a Linux PC (x86_64) in your home network. The installer takes care of Docker.',
@@ -43,7 +43,7 @@ export const copy = {
     cam: {
       h: 'Everything a room needs, in one small camera',
       sub: 'No smart speaker per room. A network camera already has the microphone, speaker and eye, and costs very little. A Tapo C200, for example, is often available for under €20.',
-      eq: [{ i: '📷', h: 'Cheap camera', p: 'e.g. TP-Link Tapo C200' }, { i: '🧠', h: 'JuStAI5', p: 'Free and open source' }, { i: '🏠', h: 'Smart room', p: 'Hears you, sees, answers' }],
+      eq: [{ i: '📷', h: 'Cheap camera', p: 'e.g. TP-Link Tapo C200' }, { i: '🧠', h: 'JuStAI', p: 'Free and open source' }, { i: '🏠', h: 'Smart room', p: 'Hears you, sees, answers' }],
       gives: [{ i: '🎤', h: 'Microphone', p: 'listens for “Hey Justy”' }, { i: '🔊', h: 'Speaker', p: 'answers in the same room' }, { i: '👁', h: 'Eye', p: 'people, pets and objects' }, { i: '🎯', h: 'Pan and tilt', p: 'follows you through the room' }, { i: '🔒', h: 'Privacy mode', p: 'switch off by voice' }],
       tested: 'Tested with the TP-Link Tapo C200. Other ONVIF/RTSP cameras can be added; speaker output needs a camera with two-way audio.',
     },
@@ -58,7 +58,7 @@ export const copy = {
     features: {
       h: 'Everything in one assistant',
       items: [
-        { i: '📷', h: 'Cheap cameras, smart results', p: 'A cheap network camera delivers video, microphone and speaker. JuStAI5 adds the brain: understanding, answering and remembering.' },
+        { i: '📷', h: 'Cheap cameras, smart results', p: 'A cheap network camera delivers video, microphone and speaker. JuStAI adds the brain: understanding, answering and remembering.' },
         { i: '🏠', h: 'Rooms and endpoints', p: 'It knows where you are and answers in the same room. A deterministic output router keeps replies from wandering off.' },
         { i: '👀', h: 'Sees and recognises', p: 'People, pets and objects through your cameras, with privacy masks and per-room switches.' },
         { i: '🧠', h: 'Remembers', p: 'Facts, habits and “the next time you see me” reminders, stored on your own machine.' },
@@ -73,7 +73,7 @@ export const copy = {
       h: 'Your home stays yours',
       p: 'Wake word, speech recognition, speech output, embeddings and image analysis run locally. Only the language model needs a decision: use a Google API key, or stay completely offline with a local model such as Ollama.',
       more: 'Read about security and privacy',
-      items: ['Runs on your own computer', 'No cloud account for JuStAI5 itself', 'Camera streams stay in your network', 'Fully local mode with Ollama possible', 'Open source and auditable'],
+      items: ['Runs on your own computer', 'No cloud account for JuStAI itself', 'Camera streams stay in your network', 'Fully local mode with Ollama possible', 'Open source and auditable'],
     },
     install: {
       h: 'Install it', sub: 'You need one computer that runs all the time and about 15 minutes. No programming skills required.',
@@ -87,7 +87,7 @@ export const copy = {
       keyHelp: 'Where do I get the key?', keyAnchor: '#step-3-make-the-assistant-talk-google-api-key',
       s4h: 'Wait a few minutes', s4p: 'It builds and starts everything. At the end it prints the address, user and password.',
       s5h: 'Open the address in a browser', s5p: 'Usually http://YOUR-COMPUTER:8080, user admin. Then continue with the first steps.',
-      d1: 'Download JuStAI5 and create the settings file', d2: 'Enter your Google API key', d2p: 'Open .env in an editor and change # GOOGLE_API_KEY= to GOOGLE_API_KEY=AIza… (or set it later in the interface under Plugins → Gemini).',
+      d1: 'Download JuStAI and create the settings file', d2: 'Enter your Google API key', d2p: 'Open .env in an editor and change # GOOGLE_API_KEY= to GOOGLE_API_KEY=AIza… (or set it later in the interface under Plugins → Gemini).',
       d3: 'Build and start', d4: 'Show the admin password', d4p: 'Then open http://localhost:8080 and log in as admin.',
       firstH: 'Your first conversation',
       first: [
@@ -99,7 +99,7 @@ export const copy = {
       full: 'Full step-by-step guide',
     },
     open: {
-      h: 'Open source, built by vibe coding', sub: 'JuStAI5 was built with AI coding assistants, and you can extend it the same way. No computer science degree needed.',
+      h: 'Open source, built by vibe coding', sub: 'JuStAI was built with AI coding assistants, and you can extend it the same way. No computer science degree needed.',
       cards: [
         { i: '🧩', h: 'Extensible', p: 'Add drivers, tools and integrations as plugins, or simply ask the assistant to build one for you.' },
         { i: '🌱', h: 'It learns', p: 'It remembers facts, habits and preferences, and gains new behaviour and new tools over time.' },
@@ -110,25 +110,25 @@ export const copy = {
     community: {
       h: 'Questions, bugs, ideas', sub: 'Everything happens on GitHub, in English or German.',
       items: [
-        { i: '💬', h: 'Ask a question', p: 'Ask, share what you built, talk about ideas.', cta: 'Open Discussions', href: 'https://github.com/julianstricker/JuStAI5/discussions' },
-        { i: '🐞', h: 'Report a bug', p: 'Something does not work? Tell us what happened.', cta: 'Report a bug', href: 'https://github.com/julianstricker/JuStAI5/issues/new?template=bug_report.yml' },
-        { i: '💡', h: 'Suggest a feature', p: 'Missing something? Describe what you would like to do.', cta: 'Suggest a feature', href: 'https://github.com/julianstricker/JuStAI5/issues/new?template=feature_request.yml' },
+        { i: '💬', h: 'Ask a question', p: 'Ask, share what you built, talk about ideas.', cta: 'Open Discussions', href: 'https://github.com/naxeu/justai/discussions' },
+        { i: '🐞', h: 'Report a bug', p: 'Something does not work? Tell us what happened.', cta: 'Report a bug', href: 'https://github.com/naxeu/justai/issues/new?template=bug_report.yml' },
+        { i: '💡', h: 'Suggest a feature', p: 'Missing something? Describe what you would like to do.', cta: 'Suggest a feature', href: 'https://github.com/naxeu/justai/issues/new?template=feature_request.yml' },
         { i: '🔧', h: 'Build it yourself', p: 'Fix or extend it with a coding assistant and send a pull request.', cta: 'Read the guide', slug: 'vibe-coding' },
       ],
     },
     end: { h: 'Ready to give your home a voice?', plugins: 'Build a plugin' },
-    footer: { issues: 'Issues' },
+    footer: { issues: 'Issues', claim: 'Your home. Your AI.' },
   },
   de: {
-    title: 'JuStAI5 – die KI für dein Zuhause',
-    metaDesc: 'JuStAI5 ist ein lokaler KI-Assistent für dein Zuhause. Er läuft auf deinem NAS oder PC und nutzt günstige Netzwerkkameras als Mikrofon, Lautsprecher und Augen: ein Assistent pro Raum, der zuhört, sieht, sich erinnert und antwortet.',
+    title: 'JuStAI – die KI für dein Zuhause',
+    metaDesc: 'JuStAI ist ein lokaler KI-Assistent für dein Zuhause. Er läuft auf deinem NAS oder PC und nutzt günstige Netzwerkkameras als Mikrofon, Lautsprecher und Augen: ein Assistent pro Raum, der zuhört, sieht, sich erinnert und antwortet.',
     copy: 'Kopieren',
-    video: { h: 'Sieh es in Aktion', sub: 'Eine kurze Einführung, weniger als eine Minute.', unmute: '🔊 Klicken für Ton', mute: '🔇 Ton aus', label: 'Einführungsvideo', note: 'Szenen und Sprecherstimme in diesem Video sind KI-generiert. Die gezeigte Oberfläche und Funktionen von JuStAI5 sind real.' },
+    video: { h: 'Sieh es in Aktion', sub: 'Eine kurze Einführung, weniger als eine Minute.', unmute: '🔊 Klicken für Ton', mute: '🔇 Ton aus', label: 'Einführungsvideo', note: 'Szenen und Sprecherstimme in diesem Video sind KI-generiert. Die gezeigte Oberfläche und Funktionen von JuStAI sind real.' },
     nav: { examples: 'Was er kann', features: 'Funktionen', install: 'Installieren', docs: 'Doku' },
     hero: {
       eyebrow: 'Ein lokaler KI-Assistent · läuft auf deinem NAS oder PC',
       h1a: 'Die KI für', h1b: 'dein Zuhause.',
-      lead: 'JuStAI5 läuft auf deinem NAS oder PC zuhause und macht günstige Netzwerkkameras zu Mikrofon, Lautsprecher und Augen. Sag in einem Raum das Wakeword: Der Assistent dort hört zu, sieht, erinnert sich und antwortet über den Lautsprecher der Kamera. Er läuft auf deiner eigenen Hardware, nicht bei einem Anbieter.',
+      lead: 'JuStAI läuft auf deinem NAS oder PC zuhause und macht günstige Netzwerkkameras zu Mikrofon, Lautsprecher und Augen. Sag in einem Raum das Wakeword: Der Assistent dort hört zu, sieht, erinnert sich und antwortet über den Lautsprecher der Kamera. Er läuft auf deiner eigenen Hardware, nicht bei einem Anbieter.',
       wake: '„Hey Justy“ ist das mitgelieferte Wakeword. Du kannst ein anderes mitgeliefertes wählen oder ein eigenes hochladen.',
       cta: 'In 5 Minuten installieren', docs: 'Zur Doku',
       req: 'Braucht einen Linux-PC (x86_64) in deinem Heimnetz. Docker richtet der Installer ein.',
@@ -162,7 +162,7 @@ export const copy = {
     cam: {
       h: 'Alles, was ein Raum braucht, in einer kleinen Kamera',
       sub: 'Kein Smart Speaker pro Raum. Eine Netzwerkkamera hat schon Mikrofon, Lautsprecher und Auge und kostet sehr wenig. Eine Tapo C200 gibt es zum Beispiel oft für unter 20 €.',
-      eq: [{ i: '📷', h: 'Günstige Kamera', p: 'z. B. TP-Link Tapo C200' }, { i: '🧠', h: 'JuStAI5', p: 'Kostenlos und Open Source' }, { i: '🏠', h: 'Smarter Raum', p: 'Hört dich, sieht, antwortet' }],
+      eq: [{ i: '📷', h: 'Günstige Kamera', p: 'z. B. TP-Link Tapo C200' }, { i: '🧠', h: 'JuStAI', p: 'Kostenlos und Open Source' }, { i: '🏠', h: 'Smarter Raum', p: 'Hört dich, sieht, antwortet' }],
       gives: [{ i: '🎤', h: 'Mikrofon', p: 'wartet auf „Hey Justy“' }, { i: '🔊', h: 'Lautsprecher', p: 'antwortet im selben Raum' }, { i: '👁', h: 'Auge', p: 'Personen, Haustiere, Objekte' }, { i: '🎯', h: 'Schwenken und Neigen', p: 'folgt dir durch den Raum' }, { i: '🔒', h: 'Privatmodus', p: 'per Sprache ausschalten' }],
       tested: 'Getestet mit der TP-Link Tapo C200. Andere ONVIF/RTSP-Kameras lassen sich hinzufügen; Sprachausgabe braucht eine Kamera mit Zwei-Wege-Audio.',
     },
@@ -177,7 +177,7 @@ export const copy = {
     features: {
       h: 'Alles in einem Assistenten',
       items: [
-        { i: '📷', h: 'Günstige Kameras, smarte Ergebnisse', p: 'Eine günstige Netzwerkkamera liefert Bild, Mikrofon und Lautsprecher. JuStAI5 ergänzt das Gehirn: verstehen, antworten und erinnern.' },
+        { i: '📷', h: 'Günstige Kameras, smarte Ergebnisse', p: 'Eine günstige Netzwerkkamera liefert Bild, Mikrofon und Lautsprecher. JuStAI ergänzt das Gehirn: verstehen, antworten und erinnern.' },
         { i: '🏠', h: 'Räume und Endpunkte', p: 'Er weiß, wo du bist, und antwortet im selben Raum. Ein deterministischer Output Router sorgt dafür, dass Antworten nicht abwandern.' },
         { i: '👀', h: 'Sieht und erkennt', p: 'Personen, Haustiere und Objekte über deine Kameras, mit Privatzonen und Schaltern pro Raum.' },
         { i: '🧠', h: 'Erinnert sich', p: 'Fakten, Gewohnheiten und „wenn du mich das nächste Mal siehst“-Erinnerungen, gespeichert auf deinem Rechner.' },
@@ -192,7 +192,7 @@ export const copy = {
       h: 'Dein Zuhause bleibt deins',
       p: 'Wakeword, Spracherkennung, Sprachausgabe, Embeddings und Bildanalyse laufen lokal. Nur beim Sprachmodell musst du dich entscheiden: ein Google-API-Key, oder komplett offline mit einem lokalen Modell wie Ollama.',
       more: 'Mehr zu Sicherheit und Datenschutz',
-      items: ['Läuft auf deinem eigenen Computer', 'Kein Cloud-Konto für JuStAI5 selbst', 'Kamerastreams bleiben in deinem Netz', 'Komplett lokaler Modus mit Ollama möglich', 'Open Source und überprüfbar'],
+      items: ['Läuft auf deinem eigenen Computer', 'Kein Cloud-Konto für JuStAI selbst', 'Kamerastreams bleiben in deinem Netz', 'Komplett lokaler Modus mit Ollama möglich', 'Open Source und überprüfbar'],
     },
     install: {
       h: 'Installieren', sub: 'Du brauchst einen Computer, der dauerhaft läuft, und etwa 15 Minuten. Programmierkenntnisse sind nicht nötig.',
@@ -206,7 +206,7 @@ export const copy = {
       keyHelp: 'Woher bekomme ich den Key?', keyAnchor: '#schritt-3-den-assistenten-zum-sprechen-bringen-google-api-key',
       s4h: 'Ein paar Minuten warten', s4p: 'Er baut und startet alles. Am Ende zeigt er Adresse, Benutzer und Passwort.',
       s5h: 'Adresse im Browser öffnen', s5p: 'Meist http://DEIN-RECHNER:8080, Benutzer admin. Danach geht es mit den ersten Schritten weiter.',
-      d1: 'JuStAI5 herunterladen und Einstellungsdatei anlegen', d2: 'Google-API-Key eintragen', d2p: 'Öffne .env in einem Editor und ändere # GOOGLE_API_KEY= in GOOGLE_API_KEY=AIza… (oder später in der Oberfläche unter Plugins → Gemini).',
+      d1: 'JuStAI herunterladen und Einstellungsdatei anlegen', d2: 'Google-API-Key eintragen', d2p: 'Öffne .env in einem Editor und ändere # GOOGLE_API_KEY= in GOOGLE_API_KEY=AIza… (oder später in der Oberfläche unter Plugins → Gemini).',
       d3: 'Bauen und starten', d4: 'Admin-Passwort anzeigen', d4p: 'Dann http://localhost:8080 öffnen und als admin anmelden.',
       firstH: 'Dein erstes Gespräch',
       first: [
@@ -218,7 +218,7 @@ export const copy = {
       full: 'Komplette Schritt-für-Schritt-Anleitung',
     },
     open: {
-      h: 'Open Source, per Vibe Coding gebaut', sub: 'JuStAI5 wurde mit KI-Coding-Assistenten gebaut, und du kannst es genauso weiterentwickeln. Ein Informatikstudium brauchst du dafür nicht.',
+      h: 'Open Source, per Vibe Coding gebaut', sub: 'JuStAI wurde mit KI-Coding-Assistenten gebaut, und du kannst es genauso weiterentwickeln. Ein Informatikstudium brauchst du dafür nicht.',
       cards: [
         { i: '🧩', h: 'Erweiterbar', p: 'Ergänze Treiber, Tools und Anbindungen als Plugins, oder bitte den Assistenten einfach, eines für dich zu bauen.' },
         { i: '🌱', h: 'Lernfähig', p: 'Er merkt sich Fakten, Gewohnheiten und Vorlieben und bekommt mit der Zeit neues Verhalten und neue Tools.' },
@@ -229,13 +229,13 @@ export const copy = {
     community: {
       h: 'Fragen, Fehler, Ideen', sub: 'Alles läuft auf GitHub, auf Deutsch oder Englisch.',
       items: [
-        { i: '💬', h: 'Frage stellen', p: 'Frag nach, zeig was du gebaut hast, sprich über Ideen.', cta: 'Discussions öffnen', href: 'https://github.com/julianstricker/JuStAI5/discussions' },
-        { i: '🐞', h: 'Fehler melden', p: 'Etwas funktioniert nicht? Sag uns, was passiert ist.', cta: 'Fehler melden', href: 'https://github.com/julianstricker/JuStAI5/issues/new?template=bug_report.yml' },
-        { i: '💡', h: 'Feature vorschlagen', p: 'Fehlt dir etwas? Beschreibe, was du tun möchtest.', cta: 'Feature vorschlagen', href: 'https://github.com/julianstricker/JuStAI5/issues/new?template=feature_request.yml' },
+        { i: '💬', h: 'Frage stellen', p: 'Frag nach, zeig was du gebaut hast, sprich über Ideen.', cta: 'Discussions öffnen', href: 'https://github.com/naxeu/justai/discussions' },
+        { i: '🐞', h: 'Fehler melden', p: 'Etwas funktioniert nicht? Sag uns, was passiert ist.', cta: 'Fehler melden', href: 'https://github.com/naxeu/justai/issues/new?template=bug_report.yml' },
+        { i: '💡', h: 'Feature vorschlagen', p: 'Fehlt dir etwas? Beschreibe, was du tun möchtest.', cta: 'Feature vorschlagen', href: 'https://github.com/naxeu/justai/issues/new?template=feature_request.yml' },
         { i: '🔧', h: 'Selbst mitbauen', p: 'Behebe oder erweitere es mit einem Coding-Assistenten und schick einen Pull Request.', cta: 'Zur Anleitung', slug: 'vibe-coding' },
       ],
     },
     end: { h: 'Bereit, deinem Zuhause eine Stimme zu geben?', plugins: 'Ein Plugin bauen' },
-    footer: { issues: 'Probleme melden' },
+    footer: { issues: 'Probleme melden', claim: 'Dein Zuhause. Deine KI.' },
   },
 } as const;

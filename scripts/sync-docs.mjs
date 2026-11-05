@@ -1,4 +1,4 @@
-// Pulls the Markdown docs from the JuStAI5 repo and turns them into Starlight content.
+// Pulls the Markdown docs from the JuStAI repo and turns them into Starlight content.
 //   English: <repo>/README.md + docs/*.md      -> src/content/docs/docs/
 //   German:  <repo>/docs/de/*.md               -> src/content/docs/de/docs/
 // Source: JUSTAI_SRC (local checkout) or a shallow clone of the GitHub repo into .cache/.
@@ -11,7 +11,7 @@ import { base, repo } from '../site.config.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 let src = process.env.JUSTAI_SRC;
 if (!src) {
-  src = path.join(root, '.cache', 'JuStAI5');
+  src = path.join(root, '.cache', 'JuStAI');
   if (existsSync(path.join(src, '.git'))) {
     execFileSync('git', ['-C', src, 'pull', '--ff-only', '-q'], { stdio: 'inherit' });
   } else {
@@ -21,7 +21,7 @@ if (!src) {
 }
 
 const out = path.join(root, 'src/content/docs');
-// Images (diagrams, screenshots) are part of the docs in the JuStAI5 repo: docs/img -> public/img/docs
+// Images (diagrams, screenshots) are part of the docs in the JuStAI repo: docs/img -> public/img/docs
 rmSync(path.join(root, 'public/img/docs'), { recursive: true, force: true });
 cpSync(path.join(src, 'docs/img'), path.join(root, 'public/img/docs'), { recursive: true });
 rmSync(path.join(out, 'docs'), { recursive: true, force: true });
